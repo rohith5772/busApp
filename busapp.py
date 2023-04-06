@@ -1,5 +1,4 @@
-import os
-import openai
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pandas as pd
@@ -11,7 +10,7 @@ CORS(app)  # allows all origins by default
 import json
 @app.route("/hello")
 def hello():
-  #print(request.args.get("start"))
+  #print(request.args.get("start")) .
   #print(request.args.get("end"))
   startVal = request.args.get("start")
   endVal = request.args.get("end")
@@ -26,7 +25,7 @@ def hello():
   # select two columns
   print(df[['bus_id', 'stop_id']])
   
-  filtered_df = df[(df['stop_id'].isin([startVal, 'Raidurg' ])) & (df['stop_id'] == 'Raidurg')].groupby(by='bus_id')[['bus_id','Arr_Time','Dep_Time']].first()
+  filtered_df = df[(df['stop_id'].isin(["Uppal", 'Raidurg' ])) & (df['stop_id'] == 'Raidurg')].groupby(by='bus_id')[['bus_id','Arr_Time','Dep_Time']].first()
   print(filtered_df)
   print("--------")
   filtered_data = filtered_df.to_json()
@@ -94,47 +93,6 @@ def route():
   #for i in filtered_data['bus_id'] :
   #print(type(json_object))
   return jsonify(json_object)
-
-@app.route("/images")
-def images():
-  print("hit")
-  openai.api_key = "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"
-  im1 = Image.open(r'C:\Users\RSTPL065\Pictures\images.png')
-  im1 = im1.resize((500, 500))
-  im1.save(r'C:\Users\RSTPL065\Downloads\imagesst.png')
-  response = openai.Image.create_variation(
-  image=open(r"C:\Users\RSTPL065\Downloads\imagesst.png", "rb"),
-  n=10,
-  size="512x512"
-)
-  image_url = response['data']
-  print(image_url)
-  return jsonify(image_url)
-
-@app.route("/imagesMasking")
-def imagesMasking():
-  openai.api_key = "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"
-  im1 = Image.open(r'C:\Users\RSTPL065\Pictures\image_edit_original.jpg')
-  im1 = im1.resize((500, 500))
-  im1 = im1.convert("RGBA")
-  im1.save(r'C:\Users\RSTPL065\Downloads\imagesOriginal.png')
-
-  im2 = Image.open(r'C:\Users\RSTPL065\Pictures\image_edit_mask.jpg')
-  im2 = im2.resize((500, 500)) 
-  im2 = im2.convert("RGBA")
-  im2.save(r'C:\Users\RSTPL065\Downloads\imagesMask.png')
-  print("hi")
-  response = openai.Image.create_edit(
-  image=open(r"C:\Users\RSTPL065\Downloads\imagesOriginal.png", "rb"),
-  mask=open(r"C:\Users\RSTPL065\Downloads\imagesMask.png","rb"),
-  prompt="A sunlit indoor lounge area with a pool containing a flamingo",
-  n=10,
-  size="512x512"
- 
-  )
-  image_url = response['data']
-  print(image_url)
-  return jsonify(image_url)
 
 
 if __name__ == "__main__":

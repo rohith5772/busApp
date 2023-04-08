@@ -17,7 +17,7 @@ export default function ListingPage(){
     }
 
     async function fetchData(busId: string) {
-        const response = await fetch("http://127.0.0.1:5000/busroute"+"?busId="+busId, {
+        const response = await fetch("https://rohith5772.pythonanywhere.com/busroute"+"?busId="+busId, {
           mode: 'cors'
         });
         const json = await response.json();

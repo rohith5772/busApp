@@ -58,14 +58,26 @@ export default function ListingPage(){
           <th>Bus Number</th>
           <th>Arr Time</th>
           <th>Dep Time</th>
+          <th>From</th>
+          <th>To</th>
         </tr>
       </thead>
       <tbody>
-      {location.state.buses_list.map((bus: { bus_id: React.Key | null | undefined; Arr_Time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; Dep_Time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;},index: any) => (
+      {location.state.buses_list.map((bus: { bus_id: React.Key | null | undefined; 
+                                            Arr_Time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; 
+                                            Dep_Time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+                                            From: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+                                            To: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+
+                                          },index: any) => (
         <tr key={bus.bus_id}>
           <td onClick={()=>submitfn(location.state.buses_list[index].bus_id)}>{bus.bus_id}</td>
           <td onClick={()=>submitfn(location.state.buses_list[index].Arr_Time)}>{bus.Arr_Time}</td>
           <td onClick={()=>submitfn(location.state.buses_list[index].Dep_Time)}>{bus.Dep_Time}</td>
+          <td onClick={()=>submitfn(location.state.buses_list[index].From)}>{bus.From}</td>
+          <td onClick={()=>submitfn(location.state.buses_list[index].To)}>{bus.To}</td>
+
+
         </tr>
       ))}
         

@@ -1,33 +1,12 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect,useState } from 'react'
-
-import './details.css';
+import './timingsDetail.css';
 
 
 
-export default function DetailingPage(){
+export default function DetailingTimings(){
     const next = useNavigate();
     const location = useLocation();
-    const [data, setData] = useState(null);
-
-    function submitfn(params: string) {
-      console.log(params);
-      fetchData(params);
-    }
-
-    async function fetchData(busId: string) {
-        const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings"+"?busId="+busId, {
-          mode: 'cors'
-        });
-        const json = await response.json();
-        setData(json);
-        console.log(json);
-    
-        next('/DetailingTimingsPage',{state:json});
-    }
-
-
     return <div>
        
        {/* <div>{location.state[0]}</div>
@@ -56,6 +35,7 @@ export default function DetailingPage(){
           <th>Stop</th>
           <th>Arr Time</th>
           <th>Freq</th>
+          <th>Timings</th>
         </tr>
       </thead>
       <tbody>
@@ -63,13 +43,21 @@ export default function DetailingPage(){
       stop_id: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; 
       Freq: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
       Arr_Time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
-
+      Stop_Timings: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
     },index: any) => (
         <tr key={bus.bus_id}>
-          <td onClick={()=>submitfn(location.state.buses_list[index].stop_id)}>{bus.stop_id}</td>
-          <td onClick={()=>submitfn(location.state.buses_list[index].Arr_Time)}>{bus.Arr_Time}</td>
-          <td onClick={()=>submitfn(location.state.buses_list[index].Freq)}>{bus.Freq}</td>
-        </tr>
+          <td onClick={(location.state.buses_list[index].stop_id)}>{bus.stop_id}</td>
+          <td onClick={(location.state.buses_list[index].Arr_Time)}>{bus.Arr_Time}</td>
+          <td onClick={(location.state.buses_list[index].Freq)}>{bus.Freq}</td>
+          {/* <td onClick={(location.state.buses_list[index].Stop_Timings)}>{bus.Stop_Timings}{location.state.buses_list[index].Stop_Timings[0]},{location.state.buses_list[index].Stop_Timings[1]}</td> */}
+          <td>{location.state.buses_list[index].Stop_Timings.map((timings : any , i : number)=>{
+            if(location.state.buses_list[index].Stop_Timings.length - 1 === i)
+            return (<span>{timings} </span>)
+            else{
+              return (<span>{timings} , </span>)
+            }
+          })}</td>
+    </tr>
       ))}
       </tbody>
     </table> 
@@ -79,4 +67,3 @@ export default function DetailingPage(){
     </footer>
     </div>
 }
-    

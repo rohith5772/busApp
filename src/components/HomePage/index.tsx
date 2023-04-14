@@ -49,7 +49,7 @@ const HomePage = () => {
     } else {
       alert("  endval and startval Cannnot be blank");
     }
-    const response = await fetch("https://rohith5772.pythonanywhere.com/"+"?start="+startval+"&end="+endval, {
+    const response = await fetch("https://rohith5772.pythonanywhere.com/", {
       mode: 'cors'
     });
     const json = await response.json();
@@ -75,7 +75,7 @@ const HomePage = () => {
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Routes</a></li>
+        <li><a href="#/BusTimings">Routes</a></li>
         <li><a href="#">Map</a></li>
       </ul>
     </nav>

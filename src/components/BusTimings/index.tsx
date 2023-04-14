@@ -12,51 +12,44 @@ import axios from "axios";
 //farecomparision page
 
 
-const HomePage = () => {
+const BusTimings = () => {
   const [data, setData] = useState(null);
   const [startval, setstartval] = useState("");
-  const [endval, setendval] = useState("");
   var ref = useRef(null);
   //const myElement = useRef(null);
   const next = useNavigate();
   function submitfn() {
     var startLocation = ((document.getElementById("start") as HTMLInputElement).value);
-    var endLocation = ((document.getElementById("end") as HTMLInputElement).value);
-    console.log(startLocation,endLocation);
+    console.log(startLocation);
     fetchData();
   }
   useEffect(() => {
     var elementStart = (document.getElementById("start") as HTMLInputElement).value;
-    let elementEnd = (document.getElementById("end") as HTMLInputElement).value;
     //console.log(elementStart);
     if (elementStart) {
     console.log(elementStart);
     }
-    if (elementEnd) {
-      console.log(elementEnd);
-    } 
+    
     
   }, []);
   async function fetchData() {
-    if (startval && endval) {
+    if (startval) {
       console.log(startval);
-      console.log(endval);
 
       setstartval("");
-      setendval("");
 
       
     } else {
-      alert("  endval and startval Cannnot be blank");
+      alert("Bus Number cannot be blank");
     }
-    const response = await fetch("https://rohith5772.pythonanywhere.com/", {
+    const response = await fetch("https://rohith5772.pythonanywhere.com/routeTimingsBasedOnBusId", {
       mode: 'cors'
     });
     const json = await response.json();
     setData(json);
     console.log(json);
 
-    next('/listing',{state:json});
+    next('/BusIdRouteFromTo',{state:json});
   }
   return (
     <div>
@@ -81,10 +74,9 @@ const HomePage = () => {
     </nav>
   </header>
   <main>
-    <div id="a">
-      <input id="start" type="text" placeholder="Enter starting point" ref={ref} value={startval} onChange={(e) => setstartval(e.target.value)}/>
-      <input id="end" type="text" placeholder="Enter destination" ref={ref} value={endval} onChange={(e) => setendval(e.target.value)}/>
-      <button onClick={submitfn} type="submit">Get Directions</button>
+    <div id="abc">
+      <input id="start" type="text" placeholder="Enter Bus Number" ref={ref} value={startval} onChange={(e) => setstartval(e.target.value)}/>
+      <button onClick={submitfn} type="submit">Get Route</button>
     </div>
   </main>
   <footer>
@@ -96,4 +88,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default BusTimings;

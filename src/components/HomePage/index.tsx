@@ -5,10 +5,11 @@ import { useRouter } from 'next/router';
 import { useEffect,useState } from 'react'
 //import './HomePage.css';
 import axios from "axios";
-import hydImg from './hyd-map.png';
+//import hydImg from './hyd-map.png';
 import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
+import Link from 'next/link';
 //map
 //from,to text fields
 //search button
@@ -106,7 +107,7 @@ const HomePage = () => {
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
-   <a id = "home" href="/" className="commonclass">Home</a>
+   <Link id = "home" href="/" className="commonclass">Home</Link>
   <a id = "bustimings" className="commonclass" href="bustimings">Search Bus</a>
   <a id = "contact" className="commonclass" href="contact">Contact</a>
   <a id = "about" className="commonclass" href="about">About</a>

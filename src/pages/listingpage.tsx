@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface BusData {
   buses_list: {
@@ -70,7 +71,7 @@ const  ListingPage = (props: any) =>{
     <h1 className="h1class"><a href="http://www.hyderabadcitybus.com/" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-      <a href="/" className="active">Home</a>
+      <Link href="/" className="active">Home</Link>
       <a href="bustimings">Search Bus</a>
       <a href="contact">Contact</a>
       <a href="about">About</a>

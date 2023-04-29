@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface BusData {
   buses_list: {
@@ -58,7 +59,7 @@ const  DetailingTimings = (props: any) =>{
         </div>
       ))} */}
   <div className="topnav" id="myTopnav">
-  <a href="/" className="active">Home</a>
+  <Link href="/" className="active">Home</Link>
   <a href="bustimings">Search Bus</a>
   <a href="contact">Contact</a>
   <a href="about">About</a>

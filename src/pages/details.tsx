@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface BusData {
   buses_list: {
@@ -167,7 +168,7 @@ const  DetailingPage = (props: any) =>{
 
       
   <div className="topnav" id="myTopnav">
-  <a href="/" className="active">Home</a>
+  <Link href="/" className="active">Home</Link>
   <a href="bustimings">Search Bus</a>
   <a href="contact">Contact</a>
   <a href="about">About</a>
@@ -229,7 +230,7 @@ const  DetailingPage = (props: any) =>{
 }
 /*export async function getServerSideProps (context: any) {
   
-  const response = await fetch("http://127.0.0.1:5000/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
+  const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
   const busesList: BusData = await response.json();
 return {
 props: {busesList}, // will be passed to the page component as props

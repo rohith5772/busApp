@@ -94,7 +94,7 @@ const BusTimings = () => {
   }
   return (
     <div>
-        <h1 className="h1class"><a href="http://www.hyderabadcitybus.com/" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+        <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
         <div id="map"></div>
     {/* <label htmlFor="start">Start: </label>
@@ -137,7 +137,7 @@ id="start"
     </div>
     </div>
   <footer>
-    <p>&copy; 2023 Citymapper</p>
+    <p>&copy; 2023 Cityroutemapper</p>
   </footer>
 </div>
 </main>

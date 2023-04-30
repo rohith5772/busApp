@@ -27,7 +27,7 @@ body {
   color: rgb(214, 60, 60) !important;
 
 }
-/*by me to decrease width*/
+/*by me to decrease width but keep as important because col-sm-6 is  more priority*/
 .container {
   margin:0 auto; /* this will center the page */
   margin-left: 100px;

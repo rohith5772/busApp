@@ -68,7 +68,7 @@ const  ListingPage = (props: any) =>{
 
   return (
     <div>  
-    <h1 className="h1class"><a href="http://www.hyderabadcitybus.com/" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+    <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
       <Link href="/" className="active">Home</Link>
@@ -104,7 +104,7 @@ const  ListingPage = (props: any) =>{
     </tbody>
     </table>
   <footer>
-    <p>&copy; 2023 Citymapper</p>
+    <p>&copy; 2023 Cityroutemapper</p>
   </footer>
   </div>
   </main>

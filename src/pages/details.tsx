@@ -164,7 +164,7 @@ const  DetailingPage = (props: any) =>{
     };
 
     return <div>
-      <h1 className="h1class"><a href="http://www.hyderabadcitybus.com/" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+      <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
       
   <div className="topnav" id="myTopnav">
@@ -215,7 +215,7 @@ const  DetailingPage = (props: any) =>{
     </table> 
     <h6 className="highlighttext highlighttextaddclassforpadding"  onClick={()=>submitfn()}> click here for full timings at each stop</h6>
     <footer>
-      <p>&copy; 2023 Citymapper</p>
+      <p>&copy; 2023 Cityroutemapper</p>
     </footer>
     </div>
     </main>

@@ -9,6 +9,9 @@ const nextConfig = {
 
 //module.exports = nextConfig
 module.exports = {
+  images:{
+    unoptimized:true,
+  },
   exportPathMap: async function () {
     return {
       "/": { page: "/" },

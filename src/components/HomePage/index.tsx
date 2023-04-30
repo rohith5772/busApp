@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect,useState } from 'react'
 //import './HomePage.css';
 import axios from "axios";
-//import hydImg from './hyd-map.png';
+import hydImg from './hyd-map.png';
 import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
@@ -62,7 +62,7 @@ const HomePage = () => {
       console.log(document.getElementsByClassName('commonclass')[i].className = "commonclass");
     }
 
-    if(currentUrl === 'http://localhost:3000/' || currentUrl === 'http://localhost:3000'|| currentUrl === 'http://localhost:3000/#' || currentUrl === 'https://hyderabad-city-mapper.web.app/' || currentUrl === 'https://hyderabad-city-mapper.web.app/#' || currentUrl === 'https://hyderabad-city-mapper.web.app'){
+    if(currentUrl === 'http://localhost:3000/' || currentUrl === 'http://localhost:3000'|| currentUrl === 'http://localhost:3000/#' || currentUrl === 'https://hyderabad-city-mapper.web.app/' || currentUrl === 'https://hyderabad-city-mapper.web.app/#' || currentUrl === 'https://hyderabad-city-mapper.web.app' || currentUrl === 'https://www.cityroutemapper.com' || currentUrl === 'https://www.cityroutemapper.com/' || currentUrl === 'https://www.cityroutemapper.com/#' || currentUrl === 'https://cityroutemapper.com' || currentUrl === 'https://cityroutemapper.com/' || currentUrl === 'https://cityroutemapper.com/#'){
       var val = (document.getElementById("home") as HTMLInputElement);
       val.className+=" active";
     }
@@ -103,7 +103,7 @@ const HomePage = () => {
   }
   return (
     <div>
-              <h1 className="h1class"><a href="http://www.hyderabadcitybus.com/" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+              <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
@@ -146,33 +146,27 @@ id="start"
 <button onClick={submitfn} type="submit">Get Route</button>
 
 </div>
-<div className="col-sm-6">
+<div className="col-sm-6"><Image src={hydImg} className="responsive" alt={''} />
   </div>
   </div>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">About Hyderabad City Bus Service</h3>
-  <p className="descriptiontext">This site provides the bus Routes, Timings, Timetable and schedule of all buses operating in Hyderabad. You can get list of all Hyderabad City route here in one page and select the route where you are intended to go.</p>
+  <p className="descriptiontext">This website offers information about timetable, timings, various bus routes, and schedules for all buses running in Hyderabad. You can easily find a list of all buses running in the city at a single place along with their stops and route information.</p>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Bus Routes</h3>
-  <p className="descriptiontext">There are more than 1000 City Bus Routes In Hyderabad. These bus routes are spread all over the city and outskirt. They start the buses early in the morning to late light. In few routes they rub the buses round the clock also. AC buses are also available for the convenience of the passenger.</p>
-  <p className="descriptiontext">Airport bus services are also available for the passenger going to the Air Port. This is the premium service being provided. Similarly, a passenger can get bus for all tourist destinations such as Ramoji Film City. The bus service from Hyderabad to Ramoji Film city goes long way to 40 km and returns from there as per passenger convenience.</p>
+  <p className="descriptiontext">The TSRTC operates a comprehensive bus service in Hyderabad and Secunderabad and its nearby places.City buses are available with various options, such as Metro Deluxe,Ordinary,Metro Express.They cover almost all parts of the city which includes important landmarks and tourist visited destinations.</p>
+  <p className="descriptiontext">The intercity buses offers affordable and convinient transportation to other towns and cities of the state.It also provides transportation services to neighbouring states such as Andhra Pradesh, Karnataka and Maharashtra.</p>
+  <p className="descriptiontext">In addition to this, private bus services are available in the twin cities, offering different routes with more services,comforts and amenities, at a little higher prices than the TSRTC city buses. The Hyderabad city bus service is an important part of Hyderabad`s transportation system, connecting cities and people.</p>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Bus Timings</h3>
-  <p className="descriptiontext">City bus timings in Hyderabad available here the convenience of the passengers. The bus service is provided since early in 5 AM to 11PM in almost all the routes. There are few exceptions also to this, such as in few routes they run buses round the clock.</p>
+  <p className="descriptiontext">Hyderbad has a very big network of routes, which exceeds 1000 in number.City buses help in covering both the city and the outskirts.The buses start early in the morning and end at late mid night.In addition to them some routes have buses round the clock providing added convinience to the people. They have the option to select AC buses as well with minimal cost.People who wish to travel to the airport has a dedicated bus service giving them premium services.</p>
   <p className="descriptiontext">Here Hyderabad city bus route guide is also available.</p>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Tour Bus</h3>
-  <p className="descriptiontext">Do you want to get tour of Hyderabad? If, yes then Hyderabad City Bus can make your experience better by providing good quality of buses with best infrastructure. You can get complete tour package of the Hyderabad city and selective as well. Tour bus service from Hyderabad to Ramoji Film city is exclusive one here. I have used this bus service many times and found it very useful. I recommend people to use this bus service if you are visiting Ramoji Film city.</p>
+  <p className="descriptiontext">Are you exited to visit Hyderabad and explore various tourism loactions? If your answer is yes, then the TSRTC city bus service will do the best for you.Tourists coming from various places can find buses to all famous locations such as Charminar, Golconda, Hussain Sagar, Ramoji Film City and the list goes on.There is a bus exclusively running from Hyderabad city to Ramoji Film City. I myself found this service very benificial. I advise people to use this option if you are about to visit Ramoji Film City.</p>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Bus Pass</h3>
-  <p className="descriptiontext">TSRTC issues many General Bus Passes in Hyderabad. General bus ticket is available for Rs.700 monthly. With this pass passengers can travel in ordinary buses in twin city (Hyderabad and Secunderabad) and sub-urban area. There is another category of bus passes called “Metro Express”. The passenger having this pass can travel in Metro Express as well as in General buses. The monthly cost of Metro Express pass is Rs 800/-. The next bus passes are Metro Deluxe. With this passengers can travel in TSRTC’s ordinary, Metro Express and Metro Deluxe buses.</p>
-  <p className="descriptiontext">Metro Luxury AC monthly pass comes for Rs 2000/- per month. With this pass one can travel all type of buses including premium air-conditioned Volvo buses in city and sub-urban area. Rs 25/- is additional charges above all for ID card to be issued. These bus passes are non-transferable and thus they will have photographs in ID cards. This card will be valid for maximum one year only. You can get Comparison of Various Bus Passes here</p>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City To Airport Bus Services</h3>
-  <p className="descriptiontext">The bus service to airport is also available from LB Nagar, Airport to Hitech City / Kukatpally, Airport to City College / Secretariat, Airport to Mehdipatnam / Paryatak Bhavan. The bus services have 30 minutes or 60 minutes frequency depending on route</p>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">List of all Hyderabad Bus Stands</h3>
-  <p className="descriptiontext">Hyderabad city bus has more than 1000 bus stand all over the city and outskirt of its route. This local bus service is being provided by the state Government at cheapest rate that a normal citizen can afford it well.</p>
-  <p className="descriptiontext">City bus is made affordable as it being used by the poor people of the city that has lo income. Inspite of operating at low cost, it is in profits for many years. This shows the effectiveness and management of employees and officers employed there. You must see one of their buses stands “Mahatma Gandhi bus station, Hyderabad”. This is outstanding in term of easiness and cleanliness.</p>
-  <p className="descriptiontext">Click Here To Find List of all Hyderabad Bus Stands</p>
-  <p className="descriptiontext">If You have any suggestions then you may give us and we will try implement it to this website. Our aim here is to provide seamless flow of information wihtout any error. This will make us user friendly and citizens of Hyderabad will get benefited out of this facility. So, feel free to put you valuable feedback</p>
-
+  <p className="descriptiontext">The TSRTC provides many different types of bus passes in the city,which includes the General Bus Pass, which is available at as low as Rs.700 per month. This bus pass will allow passengers to board on ordinary category buses in the city as well as Suburban areas.</p>
+  <p className="descriptiontext">There is another category of bus pass which is `Metro Express` pass. It enables people to board on both general buses and Metro Express.The charges are Rs.800 per month for issuing this card.Similarly there is another category pass `Metro Luxury AC` pass which is issued Rs.2000 per month. This card allows passengers to board all types of buses irrespective of category.The issued passes cannot be transferred from one person to another and so they have attached photographs on ID cards.A cost of Rs.25 is charged in addition above all for ID card to be issued.The bus passes become invalid after an year which has be renewed.</p>
+  
 </div >
   <footer>
-    <p>&copy; 2023 Citymapper</p>
+    <p>&copy; 2023 Cityroutemapper</p>
   </footer>
   </div>
   </main>

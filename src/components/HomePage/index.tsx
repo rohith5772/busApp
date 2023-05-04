@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 //import { useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/router';
-
+  
 import { useEffect,useState } from 'react'
 //import './HomePage.css';
 import axios from "axios";
@@ -109,8 +109,10 @@ const HomePage = () => {
         <div className="topnav" id="myTopnav">
    <Link id = "home" href="/" className="commonclass">Home</Link>
   <a id = "bustimings" className="commonclass" href="bustimings">Search Bus</a>
+  <a id = "allbuses" className="commonclass" href="allbuses">All Buses</a>
   <a id = "contact" className="commonclass" href="contact">Contact</a>
   <a id = "about" className="commonclass" href="about">About</a>
+
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>

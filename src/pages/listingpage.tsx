@@ -73,6 +73,7 @@ const  ListingPage = (props: any) =>{
         <div className="topnav" id="myTopnav">
       <Link href="/" className="active">Home</Link>
       <a href="bustimings">Search Bus</a>
+      <a href="allbuses">All Buses</a>
       <a href="contact">Contact</a>
       <a href="about">About</a>
       <a href="" className="icon" onClick={myFunction}>

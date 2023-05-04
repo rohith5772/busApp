@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 //farecomparision page
 
 
-const BusTimings = () => {
+const BusTimings = ({ products, totalProducts, currentPage }: any) => {
   const [data, setData] = useState(null);
   const [startval, setstartval] = useState("");
   var ref = useRef(null);
@@ -109,8 +109,10 @@ const BusTimings = () => {
    <div className="topnav" id="myTopnav">
    <a id = "home" href="https://cityroutemapper.com/" className="commonclass">Home</a>
   <a id = "bustimings" className="commonclass" href="https://cityroutemapper.com/bustimings">Search Bus</a>
+  <a id = "allbuses" className="commonclass" href="allbuses">All Buses</a>
   <a id = "contact" className="commonclass" href="contact">Contact</a>
   <a id = "about" className="commonclass" href="about">About</a>
+
   <a href="" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>
@@ -142,7 +144,7 @@ id="start"
 </div>
 </main>
 
-      
+
     </div>
   );
 };

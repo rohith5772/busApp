@@ -14,12 +14,12 @@ module.exports = {
   },
   exportPathMap: async function () {
     return {
-      "/": { page: "/" },
+     // "/": { page: "/" },
      // "/listingpage": { page: "/listingpage" },
      // "/busroutefromto": { page: "/busroutefromto" },
       "/details": { page: "/details" },
      // "/detailingtimingpage": { page: "/detailingtimingpage" },
-      "/bustimings": { page: "/bustimings" },
+     // "/bustimings": { page: "/bustimings" },
 
       // Don't include pages with getServerSideProps here
     };

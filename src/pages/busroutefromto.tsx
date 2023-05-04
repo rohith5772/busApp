@@ -68,6 +68,7 @@ const  BusIdRouteFromTo = (props: any) =>{
         <div className="topnav" id="myTopnav">
         <Link href="/">Home</Link>
   <a href="bustimings" className="active">Search Bus</a>
+  <a href="allbuses">All Buses</a>
   <a href="contact">Contact</a>
   <a href="about">About</a>
   <a href="" className="icon" onClick={myFunction}>

@@ -1181,10 +1181,10 @@ const HomePage = () => {
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
    <Link id = "home" href="/" className="commonclass">Home</Link>
-  <a id = "bustimings" className="commonclass" href="/bustimings">Search Bus</a>
-  <a id = "allbuses" className="commonclass" href="/allbuses">All Buses</a>
-  <a id = "contact" className="commonclass" href="/contact">Contact</a>
-  <a id = "about" className="commonclass" href="/about">About</a>
+  <Link id = "bustimings" className="commonclass" href="/bustimings">Search Bus</Link>
+  <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
+  <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
+  <Link id = "about" className="commonclass" href="/about">About</Link>
 
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>

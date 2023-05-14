@@ -108,8 +108,15 @@ const  DetailingTimings = (props: any) =>{
     </div>
 }
 export async function getServerSideProps (context: any) {
-  console.log(context.query.busId,context.query.From,context.query.To,"test");
-  const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
+  var val = context.query.slug;
+  var busId = val.split('-')[3];
+  var from = val.split('-')[7];
+  console.log(busId,from); 
+  var to = val.split('-')[9];
+  console.log(to);
+  //const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+busId+"&fromVal="+from+"&toVal="+to);
+  const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+from+"&toVal="+to);
+
   const stopList: BusData = await response.json();
 return {
 props: {stopList}, // will be passed to the page component as props

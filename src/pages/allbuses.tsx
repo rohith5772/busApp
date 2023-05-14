@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Pagination from '../pagination';
-import data from '../examples/data/mock-data.json';
+import data from '../examples/data/hydbuses.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Link from 'next/link';
@@ -56,9 +56,12 @@ export default function App() {
           }
         );
         const json = await response.json();*/
-        router.push({
+        /*router.push({
           pathname: '/detailbusjourney',
           query: {busId:busId,From:fromVal ,To:toVal },
+        });*/
+        router.push({
+          pathname: `/detailbusjourney/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
         });
       } catch (error) {
         console.error(error);
@@ -70,12 +73,12 @@ export default function App() {
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
     <div className="topnav" id="myTopnav">
    <Link id = "home" href="/" className="commonclass">Home</Link>
-  <a id = "bustimings" className="commonclass" href="bustimings">Search Bus</a>
-  <a id = "allbuses" className="commonclass" href="allbuses">All Buses</a>
-  <a id = "contact" className="commonclass" href="contact">Contact</a>
-  <a id = "about" className="commonclass" href="about">About</a>
+  <Link id = "bustimings" className="commonclass" href="/bustimings">Search Bus</Link>
+  <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
+  <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
+  <Link id = "about" className="commonclass" href="/about">About</Link>
 
-  <a href="" className="icon" onClick={myFunction}>
+  <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>
 </div>

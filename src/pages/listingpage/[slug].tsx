@@ -1,3 +1,21 @@
+/*import { useRouter } from 'next/router';
+
+function ListingPages() {
+  const router = useRouter();
+  const slug = router.query.slug as string;
+  // Split the slug into "from" and "to" parts
+  const [from, to] = slug.split('-').map(decodeURIComponent);
+
+  return (
+    <div>
+      <div>From: {from}</div>
+      <div>To: {to}</div>
+    </div>
+  );
+}
+
+export default ListingPages;
+*/
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -14,11 +32,15 @@ interface BusData {
     stop_id: string;
   }[];
 }
-const  ListingPage = (props: any) =>{
+const  ListingPages = (props: any) =>{
   const router = useRouter();
   const { json } = router.query;
   const fromVal = router.query.From;
   const toVal = router.query.To;
+  const slug = router.query.slug as string;
+  // Split the slug into "from" and "to" parts
+  const [from, to] = slug.split('-').map(decodeURIComponent);
+
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
@@ -57,9 +79,12 @@ const  ListingPage = (props: any) =>{
         }
       );
       const json = await response.json();*/
-      router.push({
+      /*router.push({
         pathname: '/details',
         query: {busId:busId,From:fromVal ,To:toVal },
+      });*/
+      router.push({
+        pathname: `/details/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
       });
     } catch (error) {
       console.error(error);
@@ -117,9 +142,15 @@ const  ListingPage = (props: any) =>{
  
 export async function getServerSideProps  (context: any) {
   console.log("zs");
-  console.log(context.query.From,context.query.To,"abc");
-
-  const src = "https://rohith5772.pythonanywhere.com/?from="+context.query.From+"&to="+context.query.To; 
+  console.log(context.query.slug);
+  var val = context.query.slug;
+  var from = val.split('-')[6];
+  console.log(from); 
+  var to = val.split('-')[8];
+  console.log(to);
+  //const src = "https://rohith5772.pythonanywhere.com?from="+from+"&to="+to; 
+  //const src =  "http://127.0.0.1:5000/hello?from="+from+"&to="+to; 
+  const src = "https://aj4zqcmp6f2m5jkta3sbdtdcye0nskfo.lambda-url.ap-south-1.on.aws/?From="+from+"&To="+to;
   const response = await fetch(src);
   const stopList: BusData = await response.json();
   
@@ -127,4 +158,4 @@ export async function getServerSideProps  (context: any) {
     props: { stopList }, // will be passed to the page component as props
   };
 }
-export default ListingPage;
+export default ListingPages;

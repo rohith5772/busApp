@@ -46,12 +46,17 @@ const  DetailingPage = (props: any) =>{
       async function fetchResult() {
         try { 
           const params = new URLSearchParams(location.search);
+          console.log(window.location.href);
+      const busId = decodeURIComponent(window.location.href.split('-')[3]);
+      const fromVal = decodeURIComponent(window.location.href.split('-')[7]);
+      const toVal = decodeURIComponent(window.location.href.split('-')[9]);
+      console.log(busId,fromVal,toVal);
 
-      const busId = params.get('busId');
-      const fromVal = params.get('From');
-      const toVal = params.get('To');
           const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
-            const data: BusData = await response.json();
+          //const response = await fetch("http://127.0.0.1:5000/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+          //const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+
+          const data: BusData = await response.json();
           setStateVal(data);
           console.log(fromVal);
           console.log(toVal);
@@ -125,11 +130,16 @@ const  DetailingPage = (props: any) =>{
     async function fetchData() {
       const params = new URLSearchParams(location.search);
 
-      const busIdVal = params.get('busId');
+      /*const busIdVal = params.get('busId');
       const fromVal = params.get('From');
       const toVal = params.get('To');
-      
-      console.log(busIdVal,fromVal,toVal,"aaa");
+      */
+      console.log(window.location.href);
+      const busId = decodeURIComponent(window.location.href.split('-')[3]);
+      const fromVal = decodeURIComponent(window.location.href.split('-')[7]);
+      const toVal = decodeURIComponent(window.location.href.split('-')[9]);
+      console.log(busId,fromVal,toVal);
+      console.log(busId,fromVal,toVal,"aaa");
       /*const response = await fetch("http://127.0.0.1:5000/busroutewithtimings"+"?busId="+busIdVal+"&fromVal="+fromVal+"&toVal="+toVal, {
           mode: 'cors'
         });
@@ -137,9 +147,12 @@ const  DetailingPage = (props: any) =>{
         setData(json);
         console.log(json);*/
 
-        router.push({
+        /*router.push({
           pathname: '/detailingtimingpage',
           query: {busId:busIdVal,From:fromVal ,To:toVal },
+        });*/
+        router.push({
+          pathname: `/detailingtimingpage/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
         });
     }
     const [myArray, setMyArray] = useState(['']);
@@ -185,6 +198,7 @@ const  DetailingPage = (props: any) =>{
     <table>
       <thead>
         <tr>
+        <th className = "th-class">S.No</th>
           <th className = "th-class">Stop</th>
           <th className = "th-class">First Bus</th>
           <th className = "th-class">Click here for all trips</th>
@@ -199,10 +213,10 @@ const  DetailingPage = (props: any) =>{
 
     },index: any) => (
         <tr key={bus.bus_id}>
+          <td className = "td-class">{index+1}</td>
           <td className = "td-class">{bus.stop_id}</td>
-          <td className = "td-class">{bus.Arr_Time}</td>
-
-           <button className = "buttonclass" onClick={openPopup} value={index}><td className = "td-classbutton"><h6 className="highlighttext">click here for full timings at {bus.stop_id}</h6></td></button>
+         <td className = "td-class">{bus.Arr_Time}</td>
+            <button className = "buttonclass" onClick={openPopup} value={index}><td className = "td-classbutton"><h6 className="highlighttext">click here for full timings at {bus.stop_id}</h6></td></button>
       <Popup
         open={isPopupOpen}
         closeOnDocumentClick={false}
@@ -231,10 +245,17 @@ const  DetailingPage = (props: any) =>{
 }
 /*export async function getServerSideProps (context: any) {
   
-  const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
-  const busesList: BusData = await response.json();
+  var val = context.query.slug;
+  var busId = val.split('-')[3];
+  var from = val.split('-')[7];
+  console.log(busId,from); 
+  var to = val.split('-')[9];
+  console.log(to);
+  //const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+busId+"&fromVal="+from+"&toVal="+to);
+  const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+from+"&toVal="+to);
+
+  const stopList: BusData = await response.json();
 return {
-props: {busesList}, // will be passed to the page component as props
-}
-}*/
+props: {stopList}, // will be passed to the page component as props
+}}*/
 export default DetailingPage;

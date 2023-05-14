@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import Pagination from '../pagination';
-import data from '../examples/data/mock-data.json';
+import Pagination from '../../pagination';
+import data from '../../examples/data/mock-data.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Popup from 'reactjs-popup';
@@ -210,7 +210,7 @@ export default function App(props: any) {
       ))}</ul>
       </div>
       <div className="col-sm-6 text-center">
-      POPULAR BUS ROUTES
+      {/*POPULAR BUS ROUTES
       <br></br>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
@@ -222,7 +222,7 @@ export default function App(props: any) {
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
-
+    */}
       </div>
       </div>
       </div>
@@ -238,8 +238,21 @@ export default function App(props: any) {
 }
 export async function getServerSideProps (context: any) {
   
-  const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
-  const busesList = await response.json();
+  console.log("zs");
+  console.log(context.query.slug);
+  var busid = context.query.slug;
+  var busId = busid.split('-')[3];
+  var val = context.query.slug;
+  var fromVal = val.split('-')[7];
+  var toVal = val.split('-')[9];
+  console.log(busId,fromVal,toVal);  
+
+  //const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+  //const response =  await fetch("http://127.0.0.1:5000/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+  const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+
+  const busesList: BusData = await response.json();
+  
 return {
 props: {busesList}, // will be passed to the page component as props
 }

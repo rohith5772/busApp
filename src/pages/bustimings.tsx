@@ -1168,8 +1168,7 @@ const BusTimings = ({ products, totalProducts, currentPage }: any) => {
     console.log(json);
     */
     router.push({
-      pathname: '/busroutefromto',
-      query: {/* state: JSON.stringify(json),*/busId:selectedOptions.label}
+      pathname: `/busroutefromto/hyderabad-city-bus-${encodeURIComponent(selectedOptions.label)}`,
     });
   }
   return (

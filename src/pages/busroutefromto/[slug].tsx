@@ -150,10 +150,11 @@ export async function getServerSideProps (context: any) {
   //const response = await fetch("https://rohith5772.pythonanywhere.com/routeTimingsBasedOnBusId?busId="+busId);
   //const response = await fetch("http://127.0.0.1:5000/routeTimingsBasedOnBusId?busId="+busId);
   const response = await fetch("https://4sd5kzlbzmjn4sosneucfpujpq0rlkjs.lambda-url.ap-south-1.on.aws/?busId="+busId);
-
+ 
   const busesList: BusData = await response.json();
   return {
     props: {busesList}, // will be passed to the page component as props
   }
 }
 export default BusIdRouteFromTo;
+ 

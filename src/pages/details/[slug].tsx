@@ -160,7 +160,7 @@ const  DetailingPage = (props: any) =>{
    
     const PopupContent = () => {console.log("hi",arr[0]);
       return (
-        <div>
+        <div className="popupclose">
         
         <p>{stateVal.buses_list[inputValue].bus_id} stops at {stateVal.buses_list[inputValue].stop_id} at </p>
 
@@ -171,7 +171,7 @@ const  DetailingPage = (props: any) =>{
               return (<span key={i}>{timings} , </span>)
             }
           })}</td>
-          <button onClick={closePopup}>Close</button>
+          <td className = "popupbuttonclose"><button onClick={closePopup}>Close</button></td>
         </div>
       );
     };
@@ -200,8 +200,8 @@ const  DetailingPage = (props: any) =>{
         <tr>
         <th className = "th-class">S.No</th>
           <th className = "th-class">Stop</th>
-          <th className = "th-class">First Bus</th>
-          <th className = "th-class">Click here for all trips</th>
+          {/*<th className = "th-class">First Bus</th>
+          <th className = "th-class">Click here for all trips</th>*/}
 
         </tr>
       </thead>
@@ -215,8 +215,8 @@ const  DetailingPage = (props: any) =>{
         <tr key={bus.bus_id}>
           <td className = "td-class">{index+1}</td>
           <td className = "td-class">{bus.stop_id}</td>
-         <td className = "td-class">{bus.Arr_Time}</td>
-            <button className = "buttonclass" onClick={openPopup} value={index}><td className = "td-classbutton"><h6 className="highlighttext">click here for full timings at {bus.stop_id}</h6></td></button>
+         {/*<td className = "td-class">{bus.Arr_Time}</td>
+            <button className = "buttonclass" onClick={openPopup} value={index}><td className = "td-classbutton"><h6 className="highlighttext">click here for full timings at {bus.stop_id}</h6></td></button>*/} 
       <Popup
         open={isPopupOpen}
         closeOnDocumentClick={false}
@@ -228,7 +228,7 @@ const  DetailingPage = (props: any) =>{
       ))}
       </tbody>
     </table> 
-    <h6 className="highlighttext highlighttextaddclassforpadding"  onClick={()=>submitfn()}> click here for full timings at each stop</h6>
+  {/*<h6 className="highlighttext highlighttextaddclassforpadding"  onClick={()=>submitfn()}> click here for full timings at each stop</h6>*/}
     <footer>
       <p>&copy; 2023 Cityroutemapper</p>
     </footer>

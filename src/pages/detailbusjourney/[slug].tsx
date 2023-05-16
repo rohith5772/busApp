@@ -196,7 +196,7 @@ export default function App(props: any) {
     },index: any) => (
         <li key={bus.bus_id}>
   <div className="stop-wrapper" >{bus.stop_id}</div>
-  <button className="schedule-link upcoming-arrivals-link" onClick={openPopup} value={index}>Upcoming Arrivals</button>
+  {/*<button className="schedule-link upcoming-arrivals-link" onClick={openPopup} value={index}>Upcoming Arrivals</button>*/}
       
       <Popup
         open={isPopupOpen}

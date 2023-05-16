@@ -85,7 +85,7 @@ const  BusIdRouteFromTo = (props: any) =>{
         <tr>
           <th className = "th-class">Bus Id</th>
           <th className = "th-class">Stop</th>
-          <th className = "th-class">Arr Time</th>
+          {/*<th className = "th-class">Arr Time</th>*/}
 
         </tr>
       </thead>
@@ -97,7 +97,7 @@ const  BusIdRouteFromTo = (props: any) =>{
         <tr key={bus.stop_id}>
           <td className = "td-class">{stateVal.buses_list_from[index]["bus_id"]}</td>
           <td className = "td-class">{stateVal.buses_list_from[index]["stop_id"]}</td>
-          <td className = "td-class">{stateVal.buses_list_from[index]["Arr_Time"]}</td>
+          {/*<td className = "td-class">{stateVal.buses_list_from[index]["Arr_Time"]}</td>*/}
 
     </tr>
       ))}
@@ -112,7 +112,7 @@ const  BusIdRouteFromTo = (props: any) =>{
         <tr>
           <th className = "th-class">Bus Id</th>
           <th className = "th-class">Stop</th>
-          <th className = "th-class">Arr Time</th>
+          {/*<th className = "th-class">Arr Time</th>*/}
 
         </tr>
       </thead>
@@ -124,7 +124,7 @@ const  BusIdRouteFromTo = (props: any) =>{
         <tr key={bus.stop_id}>
           <td className = "td-class">{stateVal.buses_list_to[index]["bus_id"]}</td>
           <td className = "td-class">{stateVal.buses_list_to[index]["stop_id"]}</td>
-          <td className = "td-class">{stateVal.buses_list_to[index]["Arr_Time"]}</td>
+        {/*<td className = "td-class">{stateVal.buses_list_to[index]["Arr_Time"]}</td>*/}
 
     </tr>
       ))}

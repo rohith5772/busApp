@@ -36,13 +36,13 @@ const  DetailingPage = (props: any) =>{
     const [inputValue, setInputValue] = useState(Number);
     const [busData, setBusData] = useState(null);
     const [stopTimings, setStopTimings] = useState<Array<string>>([]); // specify the type of the state variable as an array of strings
-    //const [stateVal, setStateVal] = useState<BusData>(props.busesList);//if you want to do server side rendering just uncooment this line and comment below line and comment useeffect method and uncomment getserversideprops..thats it
-    const [stateVal, setStateVal] = useState<BusData>({ buses_list: [] });
+    const [stateVal, setStateVal] = useState<BusData>(props.stopList);//if you want to do server side rendering just uncooment this line and comment below line and comment useeffect method and uncomment getserversideprops..thats it
+    //const [stateVal, setStateVal] = useState<BusData>({ buses_list: [] });
     const [timeLength,setTotalTimingsLength] = useState(Number);
     //const arrParticularStopTiming: Array<string> = [];
     const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
-
-    useEffect(() => {
+console.log(props.stopList);
+    /*useEffect(() => {
       async function fetchResult() {
         try { 
           const params = new URLSearchParams(location.search);
@@ -52,7 +52,7 @@ const  DetailingPage = (props: any) =>{
       const toVal = decodeURIComponent(window.location.href.split('-')[9]);
       console.log(busId,fromVal,toVal);
 
-          const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+          const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
           //const response = await fetch("http://127.0.0.1:5000/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
           //const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
 
@@ -66,7 +66,7 @@ const  DetailingPage = (props: any) =>{
       }
       fetchResult();
       
-         }, []);
+         }, []);*/
     const arr: any[] = [];    
     function openPopup(event:any) {
       setIsPopupOpen(true);
@@ -243,7 +243,7 @@ const  DetailingPage = (props: any) =>{
 
         </div>
 }
-/*export async function getServerSideProps (context: any) {
+export async function getServerSideProps (context: any) {
   
   var val = context.query.slug;
   var busId = val.split('-')[3];
@@ -257,5 +257,5 @@ const  DetailingPage = (props: any) =>{
   const stopList: BusData = await response.json();
 return {
 props: {stopList}, // will be passed to the page component as props
-}}*/
+}}
 export default DetailingPage;

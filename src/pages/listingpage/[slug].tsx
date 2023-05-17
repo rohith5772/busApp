@@ -40,7 +40,11 @@ const  ListingPages = (props: any) =>{
   const slug = router.query.slug as string;
   // Split the slug into "from" and "to" parts
   const [from, to] = slug.split('-').map(decodeURIComponent);
-
+  const alertStyle = {
+    color: 'red',
+    fontSize: '24px',
+    fontWeight: 'bold',
+  };
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
@@ -109,7 +113,7 @@ const  ListingPages = (props: any) =>{
      <h3 className="h3class allignmentClass">Direct Bus Routes From {stateVal.buses_list.length > 0 && stateVal.buses_list[0].From} Bus Stop To {stateVal.buses_list.length > 0 && stateVal.buses_list[0].To}</h3>
 
         <div className="flex-wrapper">
-
+        {stateVal.buses_list.length!=0?(
       <table className="center">
         <thead>
         <tr>
@@ -128,7 +132,7 @@ const  ListingPages = (props: any) =>{
         </tr>
       ))}
     </tbody>
-    </table>
+    </table>):(<h1 className="h3class allignmentClass" style={alertStyle}>Sorry, No buses are available in this root!!!</h1>)}
   <footer>
     <p>&copy; 2023 Cityroutemapper</p>
   </footer>

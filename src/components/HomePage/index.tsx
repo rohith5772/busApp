@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 //import { useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/router';
-  
+import ReactGA from 'react-ga';
+
 import { useEffect,useState } from 'react'
 //import './HomePage.css';
 import axios from "axios";
@@ -1122,7 +1123,7 @@ const HomePage = () => {
     fetchData();
   }
   useEffect(() => {
-      
+    ReactGA.pageview(window.location.href);
     const currentUrl = window.location.href;
     console.log(currentUrl);
     const hasWord = currentUrl.includes('BusTimings');

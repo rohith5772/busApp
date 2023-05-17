@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect,useState } from 'react'
+import ReactGA from 'react-ga';
 
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -35,8 +36,8 @@ const  BusIdRouteFromTo = (props: any) =>{
   const [stateVal, setStateVal] = useState<BusData>(props.busesList);
   console.log(props.busesList);
   //setStateVal(props.myProps);
-  /*useEffect(() => {
-    async function fetchResult() {
+  useEffect(() => {
+  /* async function fetchResult() {
       try {
         const response = await fetch("https://rohith5772.pythonanywhere.com/routeTimingsBasedOnBusId?busId="+busId);
         const data: BusData = await response.json();
@@ -48,8 +49,10 @@ const  BusIdRouteFromTo = (props: any) =>{
         console.error(error);
       }
     }
-    fetchResult();
-  }, []);*/
+    fetchResult();*/
+    ReactGA.pageview(window.location.href);
+
+  }, []);
 
   function myFunction() {
     var x = (document.getElementById("myTopnav") as HTMLInputElement);

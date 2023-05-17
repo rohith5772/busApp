@@ -5,6 +5,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
 
 interface BusData {
   buses_list: {
@@ -42,8 +43,8 @@ const  DetailingPage = (props: any) =>{
     //const arrParticularStopTiming: Array<string> = [];
     const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
 console.log(props.stopList);
-    /*useEffect(() => {
-      async function fetchResult() {
+    useEffect(() => {
+      /*async function fetchResult() {
         try { 
           const params = new URLSearchParams(location.search);
           console.log(window.location.href);
@@ -64,9 +65,10 @@ console.log(props.stopList);
           console.error(error);
         } 
       }
-      fetchResult();
-      
-         }, []);*/
+      fetchResult();*/
+      ReactGA.pageview(window.location.href);
+
+         }, []);
     const arr: any[] = [];    
     function openPopup(event:any) {
       setIsPopupOpen(true);

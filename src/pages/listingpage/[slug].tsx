@@ -19,6 +19,7 @@ export default ListingPages;
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
 
 interface BusData {
   buses_list: {
@@ -46,6 +47,7 @@ const  ListingPages = (props: any) =>{
     fontWeight: 'bold',
   };
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
+  
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
     fetchData(busId,From,To);
@@ -58,8 +60,8 @@ const  ListingPages = (props: any) =>{
     x.className = "topnav";
   }
   }
-  /*useEffect(() => {
-    async function fetchResult() {
+  useEffect(() => {
+  /*  async function fetchResult() {
       try {
         const response = await fetch("https://rohith5772.pythonanywhere.com?from="+fromVal+"&to="+toVal);
         const data: BusData = await response.json();
@@ -71,8 +73,10 @@ const  ListingPages = (props: any) =>{
         console.error(error);
       }
     }
-    fetchResult();
-  }, []);*/
+    fetchResult();*/
+        ReactGA.pageview(window.location.href);
+
+  }, []);
  
   async function fetchData(busId: string, fromVal: string, toVal: string) {
     try {

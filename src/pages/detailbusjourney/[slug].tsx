@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
 
 let PageSize = 10;
 interface BusData {
@@ -47,8 +48,8 @@ export default function App(props: any) {
   };
 
   console.log(props.busesList);
-  /*useEffect(() => {
-    async function fetchResult() {
+  useEffect(() => {
+  /*  async function fetchResult() {
       try { 
         const params = new URLSearchParams(location.search);
 
@@ -64,9 +65,10 @@ export default function App(props: any) {
         console.error(error);
       } 
     }
-    fetchResult();
-    
-       }, []);*/ 
+    fetchResult();*/ 
+    ReactGA.pageview(window.location.href);
+
+       }, []);
        
   const arr: any[] = [];    
   function openPopup(event:any) {

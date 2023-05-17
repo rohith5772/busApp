@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
 
 interface BusData {
   buses_list: {
@@ -23,8 +24,8 @@ const  DetailingTimings = (props: any) =>{
   const fromVal = router.query.From;
   const toVal = router.query.To;
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
-  /*useEffect(() => {
-    async function fetchResult() {
+  useEffect(() => {
+  /*  async function fetchResult() {
       try {
         const response = await fetch('http://127.0.0.1:5000/busroutewithtimings');
         const data: BusData = await response.json();
@@ -36,8 +37,10 @@ const  DetailingTimings = (props: any) =>{
       }
     }
     fetchResult();
-    
-       },[] );*/
+    */
+    ReactGA.pageview(window.location.href);
+
+       },[] );
     function myFunction() {
     var x = (document.getElementById("myTopnav") as HTMLInputElement);
     if (x.className === "topnav") {

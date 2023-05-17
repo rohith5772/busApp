@@ -17,7 +17,7 @@ module.exports = {
      // "/": { page: "/" },
      // "/listingpage": { page: "/listingpage" },
      // "/busroutefromto": { page: "/busroutefromto" },
-      "/details": { page: "/details" },
+      //"/details": { page: "/details" },
      // "/detailingtimingpage": { page: "/detailingtimingpage" },
      // "/bustimings": { page: "/bustimings" },
 

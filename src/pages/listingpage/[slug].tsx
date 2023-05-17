@@ -32,7 +32,7 @@ interface BusData {
     bus_id: string;
     stop_id: string;
   }[];
-}
+} 
 const  ListingPages = (props: any) =>{
   const router = useRouter();
   const { json } = router.query;

@@ -70,6 +70,10 @@ export default function App() {
   
   return (
     <div>
+            <title>All Schedule Timing TimeTable of Hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+      <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,Hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,Hyderabad City Bus"/>
+          <meta name="description" content="Find Hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
+
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
     <div className="topnav" id="myTopnav">
    <Link id = "home" href="/" className="commonclass">Home</Link>

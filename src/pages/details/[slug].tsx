@@ -42,6 +42,8 @@ const  DetailingPage = (props: any) =>{
     const [timeLength,setTotalTimingsLength] = useState(Number);
     //const arrParticularStopTiming: Array<string> = [];
     const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
+    const metaDescription = "Hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
+
 console.log(props.stopList);
     useEffect(() => {
       /*async function fetchResult() {
@@ -158,6 +160,9 @@ console.log(props.stopList);
         });
     }
     const [myArray, setMyArray] = useState(['']);
+    const [bus_Id, setBus_id] = useState(props.bus_Id);
+    const [from, setFrom] = useState(props.from);
+    const [to, setTo] = useState(props.to);
 
    
     const PopupContent = () => {console.log("hi",arr[0]);
@@ -179,6 +184,10 @@ console.log(props.stopList);
     };
 
     return <div>
+          <title>Hyderabad City Bus Routes TimeTable of route {bus_Id} from {from} to {to}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+          <meta name="description" content={metaDescription} />
+    <meta name="keyword" content="Hyderabad City Bus Routes, Hyderabad bus timings" />
+
       <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
       
@@ -258,6 +267,6 @@ export async function getServerSideProps (context: any) {
 
   const stopList: BusData = await response.json();
 return {
-props: {stopList}, // will be passed to the page component as props
+props: {stopList,busId,from,to}, // will be passed to the page component as props
 }}
 export default DetailingPage;

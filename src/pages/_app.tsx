@@ -7,5 +7,5 @@ ReactGA.initialize('376609735');
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
-} 
+}
  

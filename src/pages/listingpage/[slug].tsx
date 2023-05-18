@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
+import { Helmet } from "react-helmet";
 
 interface BusData {
   buses_list: {
@@ -84,8 +85,9 @@ console.log(fromStop+"from data");
   }
 
   return (
-    <div>              
-    <title>Hyderabad City Bus Routes TimeTable from {fromStop} to {toStop}</title><meta name = "keyword" content="City bus timetable, bus schedule VITCOS, Hyderabad City Bus, find bus schedule"/>
+    <div>
+                     
+    <title>Hyderabad City Bus Routes TimeTable from {fromStop} to {toStop}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
 
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 

@@ -40,8 +40,10 @@ export default function App(props: any) {
   //const arrParticularStopTiming: Array<string> = [];
   const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
   const [isEditing, setIsEditing] = useState(false);
-
-
+  const [bus_Id, setBus_id] = useState(props.bus_Id);
+  const [from, setFrom] = useState(props.from);
+  const [to, setTo] = useState(props.to);
+  const metaDescription = "Hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
   const toggleEditing = (valA: any, valB: any) => {
     console.log('Toggling editing with values:', valA, valB);
     setIsEditing(!isEditing);
@@ -169,6 +171,10 @@ export default function App(props: any) {
 
   return (
     <div>
+    <title>Hyderabad City Bus Routes TimeTable of route {bus_Id} from {from} to {to}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+    <meta name="description" content={metaDescription} />
+    <meta name="keyword" content="Hyderabad City Bus Routes, Hyderabad bus timings" />
+
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
     <div className="topnav" id="myTopnav">
       <Link href="/">Home</Link>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
-import { Helmet } from "react-helmet";
 
 interface BusData {
   buses_list: {

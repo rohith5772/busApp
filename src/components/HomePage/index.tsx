@@ -1177,12 +1177,15 @@ const HomePage = () => {
   }
   return (
     <div>
+      <title>All Schedule Timing TimeTable of Hyderabad City Bus</title>
               <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+              <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,Hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,Hyderabad City Bus"/>
+          <meta name="description" content="Find Hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
    <Link id = "home" href="/" className="commonclass">Home</Link>
-  <Link id = "bustimings" className="commonclass" href="/bustimings">Search Bus</Link>
+  <Link id = "bustimings" className="commonclass" href="/bustimings" >Search Bus</Link>
   <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
   <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
   <Link id = "about" className="commonclass" href="/about">About</Link>

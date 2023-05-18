@@ -1,21 +1,3 @@
-/*import { useRouter } from 'next/router';
-
-function ListingPages() {
-  const router = useRouter();
-  const slug = router.query.slug as string;
-  // Split the slug into "from" and "to" parts
-  const [from, to] = slug.split('-').map(decodeURIComponent);
-
-  return (
-    <div>
-      <div>From: {from}</div>
-      <div>To: {to}</div>
-    </div>
-  );
-}
-
-export default ListingPages;
-*/
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -32,7 +14,7 @@ interface BusData {
     bus_id: string;
     stop_id: string;
   }[];
-} 
+}
 const  ListingPages = (props: any) =>{
   const router = useRouter();
   const { json } = router.query;
@@ -47,7 +29,9 @@ const  ListingPages = (props: any) =>{
     fontWeight: 'bold',
   };
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
-  
+  const [fromStop, setFromStop] = useState(props.from);
+  const [toStop, setToStop] = useState(props.to);
+console.log(fromStop+"from data");
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
     fetchData(busId,From,To);
@@ -100,7 +84,9 @@ const  ListingPages = (props: any) =>{
   }
 
   return (
-    <div>  
+    <div>              
+    <title>Hyderabad City Bus Routes TimeTable from {fromStop} to {toStop}</title><meta name = "keyword" content="City bus timetable, bus schedule VITCOS, Hyderabad City Bus, find bus schedule"/>
+
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
@@ -114,7 +100,7 @@ const  ListingPages = (props: any) =>{
       </a>
     </div> 
      <main>
-     <h3 className="h3class allignmentClass">Direct Bus Routes From {stateVal.buses_list.length > 0 && stateVal.buses_list[0].From} Bus Stop To {stateVal.buses_list.length > 0 && stateVal.buses_list[0].To}</h3>
+     <h3 className="h3class allignmentClass">Direct Bus Routes From {fromStop} To {toStop}</h3>
 
         <div className="flex-wrapper">
         {stateVal.buses_list.length!=0?(
@@ -163,7 +149,8 @@ export async function getServerSideProps  (context: any) {
   const stopList: BusData = await response.json();
   
   return {
-    props: { stopList }, // will be passed to the page component as props
+    props: { stopList,from,to }, // will be passed to the page component as props
+   
   };
 }
 export default ListingPages;

@@ -44,6 +44,7 @@ export default function App(props: any) {
   const [from, setFrom] = useState(props.from);
   const [to, setTo] = useState(props.to);
   const metaDescription = "Hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
+  const titleVal = "Hyderabad City Bus Routes TimeTable of route " +props.busId+ " from " +props.fromVal+ " to " +props.toVal;
   const toggleEditing = (valA: any, valB: any) => {
     console.log('Toggling editing with values:', valA, valB);
     setIsEditing(!isEditing);
@@ -171,7 +172,7 @@ export default function App(props: any) {
 
   return (
     <div>
-    <title>Hyderabad City Bus Routes TimeTable of route {bus_Id} from {from} to {to}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+    <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
     <meta name="description" content={metaDescription} />
     <meta name="keyword" content="Hyderabad City Bus Routes, Hyderabad bus timings" />
 
@@ -262,6 +263,6 @@ export async function getServerSideProps (context: any) {
   const busesList: BusData = await response.json();
   
 return {
-props: {busesList}, // will be passed to the page component as props
+props: {busesList,busId,fromVal,toVal}, // will be passed to the page component as props
 }
 }

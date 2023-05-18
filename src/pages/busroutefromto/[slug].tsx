@@ -36,6 +36,8 @@ const  BusIdRouteFromTo = (props: any) =>{
   const [stateVal, setStateVal] = useState<BusData>(props.busesList);
   const metaContentDescriptionBusId = "Hyderabad City Map and Bus Routes,Get Hyderabad City Bus Route"+props.bus_Id+"Time Table, Timings";
   const metaContentKeywordBusId = "Hyderabad City Bus,Hyderabad Bus Route"+props.bus_Id+",   find bus schedule, all routes of hyderabad city bus,bus timetable"
+  const titleVal = "Hyderabad City Bus Route of " +props.busId;
+
   console.log(props.busesList);
   //setStateVal(props.myProps);
   useEffect(() => {
@@ -69,7 +71,7 @@ const  BusIdRouteFromTo = (props: any) =>{
 // To display the details of the first bus going from Nagole to Raidurg:
   return (
     <div>
-        <title>Hyderabad City Bus Route of {bus_Id}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,bus schedule,"/>
+        <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,bus schedule,"/>
         <meta name = "keyword" content={metaContentKeywordBusId}/>
 <meta name="description" content={metaContentDescriptionBusId}></meta>
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>

@@ -24,6 +24,8 @@ const  DetailingTimings = (props: any) =>{
   const fromVal = router.query.From;
   const toVal = router.query.To;
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
+  const titleVal = "Hyderabad City Bus Routes TimeTable of route " +props.bus_Id+ " from " +props.from+ " to " +props.to;
+
   useEffect(() => {
   /*  async function fetchResult() {
       try {
@@ -50,6 +52,7 @@ const  DetailingTimings = (props: any) =>{
     }
     }
     return <div>
+      <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
    <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
        {/* <div>{location.state[0]}</div>
@@ -122,6 +125,6 @@ export async function getServerSideProps (context: any) {
 
   const stopList: BusData = await response.json();
 return {
-props: {stopList}, // will be passed to the page component as props
+props: {stopList,from,to}, // will be passed to the page component as props
 }}
 export default DetailingTimings;

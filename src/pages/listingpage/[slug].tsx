@@ -31,6 +31,7 @@ const  ListingPages = (props: any) =>{
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
   const [fromStop, setFromStop] = useState(props.from);
   const [toStop, setToStop] = useState(props.to);
+  const titleVal = "Hyderabad City Bus Routes TimeTable from "+props.from+" to "+props.to;
 console.log(fromStop+"from data");
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
@@ -86,7 +87,7 @@ console.log(fromStop+"from data");
   return (
     <div>
                      
-    <title>Hyderabad City Bus Routes TimeTable from {fromStop} to {toStop}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+    <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
 
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 

@@ -43,6 +43,7 @@ const  DetailingPage = (props: any) =>{
     //const arrParticularStopTiming: Array<string> = [];
     const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
     const metaDescription = "Hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
+    const titleVal = "Hyderabad City Bus Routes TimeTable of route " +props.busId+ " from " +props.from+ " to " +props.to;
 
 console.log(props.stopList);
     useEffect(() => {
@@ -184,7 +185,7 @@ console.log(props.stopList);
     };
 
     return <div>
-          <title>Hyderabad City Bus Routes TimeTable of route {bus_Id} from {from} to {to}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+      <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
           <meta name="description" content={metaDescription} />
     <meta name="keyword" content="Hyderabad City Bus Routes, Hyderabad bus timings" />
 

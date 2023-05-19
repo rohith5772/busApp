@@ -32,6 +32,7 @@ const  ListingPages = (props: any) =>{
   const [fromStop, setFromStop] = useState(props.from);
   const [toStop, setToStop] = useState(props.to);
   const titleVal = "Hyderabad City Bus Routes TimeTable from "+props.from+" to "+props.to;
+  var headingVal = "Direct Bus Routes From " + props.from + " To " + props.to;
 console.log(fromStop+"from data");
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
@@ -102,7 +103,7 @@ console.log(fromStop+"from data");
       </a>
     </div> 
      <main>
-     <h3 className="h3class allignmentClass">Direct Bus Routes From {fromStop} To {toStop}</h3>
+     <h3 className="h3class allignmentClass">{headingVal}</h3>
 
         <div className="flex-wrapper">
         {stateVal.buses_list.length!=0?(

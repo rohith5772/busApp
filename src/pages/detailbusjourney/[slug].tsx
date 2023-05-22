@@ -183,6 +183,8 @@ export default function App(props: any) {
       <Link href="/allbuses"  className="active">All Buses</Link>
       <Link href="/contact">Contact</Link>
       <Link href="/about">About</Link>
+      <Link href="/metrotimings">Metro Timings</Link>
+
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>

@@ -43,6 +43,7 @@ const  ContactUs = () =>{
   <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
   <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
   <Link id = "about" className="commonclass" href="/about">About</Link>
+  <Link id = "metrotimings" className="commonclass" href="/metrotimings">Metro Timings</Link>
 
       <a href="javascript:void(0);" className="icon" onClick={myFunction}>
       <i className="fa fa-bars"></i>

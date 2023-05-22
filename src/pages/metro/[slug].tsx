@@ -5,17 +5,15 @@ import ReactGA from 'react-ga';
 
 interface BusData {
   buses_list: {
-    Arr_Time: string;
-    Dep_Time: string;
-    Freq: string;
-    From: string;
-    Station_Order: number;
-    To: string;
-    bus_id: string;
-    stop_id: string;
+    starTime: string;
+    cost: any;
+    stop: string;
+    dist: string;
+    stopTime: number;
+    time: string;
   }[];
 }
-const  ListingPages = (props: any) =>{
+const  MetroPages = (props: any) =>{
   const router = useRouter();
   const { json } = router.query;
   const fromVal = router.query.From;
@@ -31,8 +29,8 @@ const  ListingPages = (props: any) =>{
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
   const [fromStop, setFromStop] = useState(props.from);
   const [toStop, setToStop] = useState(props.to);
-  const titleVal = "Hyderabad City Bus Routes TimeTable from "+props.from+" to "+props.to;
-  var headingVal = "Direct Bus Routes From " + props.from + " To " + props.to;
+  const titleVal = "Hyderabad City Metro Routes TimeTable from "+props.from+" to "+props.to;
+  var headingVal = "Metro Route From " + props.from + " To " + props.to;
 console.log(fromStop+"from data");
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
@@ -93,13 +91,12 @@ console.log(fromStop+"from data");
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-      <Link href="/" className="active">Home</Link>
+      <Link href="/">Home</Link>
       <Link href="/bustimings">Search Bus</Link>
       <Link href="/allbuses">All Buses</Link>
       <Link href="/contact">Contact</Link>
       <Link href="/about">About</Link>
-      <Link href="/metrotimings">Metro Timings</Link>
-
+      <Link href="/metrotimings" className="active">Metro Timings</Link>
       <a href="javascript:void(0);" className="icon" onClick={myFunction}>
       <i className="fa fa-bars"></i>
       </a>
@@ -112,18 +109,26 @@ console.log(fromStop+"from data");
       <table className="center">
         <thead>
         <tr>
-          <th className="th-class">Bus Number</th>
-          <th className="th-class">From Stop</th>
-          <th className="th-class">To Stop</th>
+          <th className="th-class">Bus Stop</th>
+          <th className="th-class">First Trip</th>
+          <th className="th-class">Last Trip</th>
+          <th className="th-class">Cost</th>
+          <th className="th-class">Time taken</th>
+          <th className="th-class">Dist</th>
+
+
+
         </tr>
       </thead>
         <tbody>
       {stateVal.buses_list.map((bus) => (
-        <tr key={bus.bus_id}>
-          <td className = "td-class" onClick={()=>submitfn(bus.bus_id,bus.From,bus.To)}><h6 className="highlighttext">{bus.bus_id}</h6></td>
-          <td className = "td-class">{bus.From}</td>
-          <td className = "td-class"> {bus.To}</td>
-          
+        <tr key={bus.stop}>
+          <td className = "td-class">{bus.stop}</td>
+          <td className = "td-class">{bus.starTime} AM</td>
+          <td className = "td-class"> {bus.stopTime} PM</td>
+          <td className = "td-class"> Rs.{bus.cost}</td>
+          <td className = "td-class"> {bus.time}</td>
+          <td className = "td-class"> {bus.dist} Km</td>
         </tr>
       ))}
     </tbody>
@@ -149,7 +154,7 @@ export async function getServerSideProps  (context: any) {
   console.log(to);
   //const src = "https://rohith5772.pythonanywhere.com?from="+from+"&to="+to; 
   //const src =  "http://127.0.0.1:5000/hello?from="+from+"&to="+to; 
-  const src = "https://aj4zqcmp6f2m5jkta3sbdtdcye0nskfo.lambda-url.ap-south-1.on.aws/?From="+from+"&To="+to;
+  const src = "https://trfq2kgqt5bwkshb73zpl4n2wy0bymqs.lambda-url.ap-south-1.on.aws/?From="+from+"&To="+to;
   const response = await fetch(src);
   const stopList: BusData = await response.json();
   
@@ -158,4 +163,4 @@ export async function getServerSideProps  (context: any) {
    
   };
 }
-export default ListingPages;
+export default MetroPages;

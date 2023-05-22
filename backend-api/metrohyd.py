@@ -278,8 +278,8 @@ def lambda_handler(event, context):
             resultStart.append(outputStart[i])
             resultEnd.append(outputEnd[i])
     print(resultStations,"hello")
-    row_index = row_labels.index(fromVal)
-    column_index = column_labels.index(toVal)
+    row_index = resultStations.index(fromVal)
+    column_index = resultStations.index(toVal)
     print(row_index,column_index)
     
     resultStations = resultStations[row_index:(column_index+1)]
@@ -290,7 +290,8 @@ def lambda_handler(event, context):
     busDetails = {}
     finalDict = {"buses_list":[]}
     i = 0
-    
+    row_index = row_labels.index(fromVal)
+    column_index = column_labels.index(toVal)    
     while i<len(resultStations):
         busDetails = {}
         to_index = column_labels.index(resultStations[i])

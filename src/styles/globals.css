@@ -422,3 +422,35 @@ ul.experiences li:last-child:before {
   font-family: roboto,helvetica,sans-serif;
   cursor: pointer;
 }
+/* loader */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0; /* Ensure the loader is on top of other elements */
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light gray border */
+  border-top: 8px solid #db4d34; /* Blue border on top */
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

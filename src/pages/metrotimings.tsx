@@ -11,6 +11,7 @@ import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Loader from '../components/loader';
 //map
 //from,to text fields
 //search button
@@ -24,6 +25,8 @@ const HomePage = () => {
   const [startval, setstartval] = useState("");
   const [endval, setendval] = useState("");
   var ref = useRef(null);
+  const [loading, setLoading] = useState(false);
+
   //const myElement = useRef(null);
   //const router = useNavigate();
   const router = useRouter();
@@ -130,6 +133,7 @@ const HomePage = () => {
   }
  
   async function fetchData() {
+    try{
     if (selectedOptionsFrom?.label && selectedOptionsTo?.label) {
       console.log(selectedOptionsFrom.label);
       console.log(selectedOptionsTo.label);
@@ -153,10 +157,23 @@ const HomePage = () => {
     }); */
     router.push({
       pathname: `/metro/hyderabad-city-trains-that-goes-from-${encodeURIComponent(selectedOptionsFrom.label)}-to-${encodeURIComponent(selectedOptionsTo.label)}`,
-    });
+    });}
+    catch (err){
+      console.log(err)
+   } 
+   finally{
+     setLoading(false)
+   }
   }
+  useEffect(() => {
+    setLoading(true)
+  }, [router])
   return (
     <div>
+      {
+        !loading ? <Loader/> : <></>  
+      }
+
       <title>All Schedule Timing TimeTable of Hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
       <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,Hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,Hyderabad City Bus"/>
           <meta name="description" content="Find Hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
@@ -230,7 +247,16 @@ id="start"
   </footer>
   </div>
   </main>
-  
+  <style jsx>{`
+      /* Center the loader */
+      .loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* Additional styling for the loader */
+      }
+    `}</style>
     </div>
   );
 };

@@ -132,7 +132,7 @@ console.log(fromStop+"from data");
         </tr>
       ))}
     </tbody>
-    </table>):(<h1 className="h3class allignmentClass" style={alertStyle}>Sorry, No buses are available in this root!!!</h1>)}
+    </table>):(<h1 className="h3class allignmentClass" style={alertStyle}>Sorry, No buses are available in this route!!!</h1>)}
   <footer>
     <p>&copy; 2023 Cityroutemapper</p>
   </footer>

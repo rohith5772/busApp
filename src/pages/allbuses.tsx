@@ -4,12 +4,14 @@ import data from '../examples/data/hydbuses.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Link from 'next/link';
+import Loader from '../components/loader';
 
 let PageSize = 10;
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -66,10 +68,20 @@ export default function App() {
       } catch (error) {
         console.error(error);
       }
+      finally{
+        setLoading(false)
+      }
     }
-  
+    useEffect(() => {
+      setLoading(true)
+    }, [router])
   return (
     <div>
+      {
+        !loading ? <Loader/> : <></>  
+      }
+
+
             <title>All Schedule Timing TimeTable of Hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
       <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,Hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,Hyderabad City Bus"/>
           <meta name="description" content="Find Hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
@@ -127,6 +139,17 @@ export default function App() {
   </footer>
 </div>
 </main>
+<style jsx>{`
+      /* Center the loader */
+      .loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* Additional styling for the loader */
+      }
+    `}</style>
+
     </div>
   );
 }

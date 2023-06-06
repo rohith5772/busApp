@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
+import Loader from '../../components/loader';
 
 interface BusData {
   buses_list: {
@@ -21,6 +22,8 @@ const  ListingPages = (props: any) =>{
   const fromVal = router.query.From;
   const toVal = router.query.To;
   const slug = router.query.slug as string;
+  const [loading, setLoading] = useState(false);
+
   // Split the slug into "from" and "to" parts
   const [from, to] = slug.split('-').map(decodeURIComponent);
   const alertStyle = {
@@ -83,11 +86,20 @@ console.log(fromStop+"from data");
     } catch (error) {
       console.error(error);
     }
-  }
+    finally{
+      setLoading(false)
+    }
+    
 
+  }
+  useEffect(() => {
+    setLoading(true)
+  }, [router])
   return (
     <div>
-                     
+     {
+        !loading ? <Loader/> : <></>  
+     }                
     <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
 
     <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
@@ -127,13 +139,22 @@ console.log(fromStop+"from data");
         </tr>
       ))}
     </tbody>
-    </table>):(<h1 className="h3class allignmentClass" style={alertStyle}>Sorry, No buses are available in this root!!!</h1>)}
+    </table>):(<h1 className="h3class allignmentClass" style={alertStyle}>Sorry, No buses are available in this route!!!</h1>)}
   <footer>
     <p>&copy; 2023 Cityroutemapper</p>
   </footer>
   </div>
   </main>
-
+  <style jsx>{`
+      /* Center the loader */
+      .loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* Additional styling for the loader */
+      }
+    `}</style>
   </div>
   );
 };

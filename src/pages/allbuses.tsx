@@ -115,8 +115,8 @@ export default function App() {
         <tbody>
           {currentTableData.map(item => {
             return (
-              <tr key={item.id}>
-                <td className = "td-class">{item.id}</td>
+              <tr key={item.bus_id}>
+                {/* <td className = "td-class">{item.id}</td> */}
                 <td className = "td-class" onClick={()=>submitfn(item.bus_id,item.From,item.To)}><h6 className="highlighttext">{item.bus_id}</h6></td>
                 <td className = "td-class">{item.From}</td>
                 <td className = "td-class">{item.To}</td>

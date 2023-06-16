@@ -6,7 +6,6 @@ import ReactGA from 'react-ga';
 import { useEffect,useState } from 'react'
 //import './homePage.css';
 import axios from "axios";
-import hydImg from '../components/homePage/hyd-map.png';
 import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
@@ -223,7 +222,7 @@ id="start"
 <button onClick={submitfn} type="submit">Get Route</button>
 
 </div>
-<div className="col-sm-6"><Image src={hydImg} className="responsive" alt={''} />
+<div className="col-sm-6">{/*<Image src={hydImg} className="responsive" alt={''} />*/}
   </div>
   </div>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">About hyderabad City Bus Service</h3>

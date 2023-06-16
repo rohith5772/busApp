@@ -54,7 +54,7 @@ const Hyderabad = () => {
 <div  className="flex-wrapper">
 
 <div className="container">
-  
+<div className="row">
 <h1>Bus Services</h1>
 <ul className = "no-bullets">
   <li><Link href="/india/hyderabad/bus-service/hyderabad_local_bus"><h3>Telangana State Road Transport Corporation (hyderabad local bus)</h3></Link></li>
@@ -71,7 +71,7 @@ const Hyderabad = () => {
 <ul className = "no-bullets">
   <li><Link href="/india/hyderabad/train-service/metro"><h3>Metro</h3></Link></li>
 </ul>
-
+</div>
 </div >
   <footer>
     <p>&copy; 2023 Cityroutemapper</p>

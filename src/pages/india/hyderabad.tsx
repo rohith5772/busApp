@@ -1221,14 +1221,14 @@ const Hyderabad = () => {
   <div className="row">
   <ul className = "no-bullets">
 
-  <li><a href="/india/hyderabad/services">hyderabad</a></li>
-  <li><a href="/india/Mumbai">Mumbai</a></li>
-  <li><a href="/india/Chennai">Chennai</a></li>
-  <li><a href="/india/Bengaluru">Bengaluru</a></li>
-  <li><a href="/india/Pune">Pune</a></li>
-  <li><a href="/india/Delhi">Delhi</a></li>
-  <li><a href="/india/Mysore">Mysore</a></li>
-  <li><a href="/india/Ahmedabad">Ahmedabad</a></li>
+  <li><Link href="/india/hyderabad/services">hyderabad</Link></li>
+  <li><Link href="/india/Mumbai">Mumbai</Link></li>
+  <li><Link href="/india/Chennai">Chennai</Link></li>
+  <li><Link href="/india/Bengaluru">Bengaluru</Link></li>
+  <li><Link href="/india/Pune">Pune</Link></li>
+  <li><Link href="/india/Delhi">Delhi</Link></li>
+  <li><Link href="/india/Mysore">Mysore</Link></li>
+  <li><Link href="/india/Linkhmedabad">Ahmedabad</Link></li>
 
 
 

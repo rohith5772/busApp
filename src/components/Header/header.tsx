@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link';
 
-export default function header() {
+export default function Header() {
     useEffect(() => {
       
         const currentUrl = window.location.href;

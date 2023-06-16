@@ -20,7 +20,7 @@ import Loader from '../../../components/loader';
 //farecomparision page
 
 
-const hyderabad = () => {
+const Hyderabad = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -56,20 +56,20 @@ const hyderabad = () => {
 <div className="container">
   
 <h1>Bus Services</h1>
-<ul className="agencies-wrapper wow fadeInDown" id="agency-type-3">
-  <Link href="/india/hyderabad/bus-service/hyderabad_local_bus" className="agency-group"><h3>Telangana State Road Transport Corporation (hyderabad local bus)</h3></Link>
-  <Link href="/india/hyderabad/bus-service/hyderabad_local_electric_bus" className="agency-group"><h3>TSRTC Pushpak (Airport Electric Buses)</h3></Link>
-  <Link href="/india/hyderabad/bus-service/hyderabad_local_long_distance_bus" className="agency-group"><h3>TSRTC hyderabad Long Distance Buses</h3></Link>
-  <Link href="/india/hyderabad/bus-service/hyderabad_metro_feeder_bus" className="agency-group"><h3>SVIDA (Metro Feeder Bus Services)</h3></Link>
-  <Link href="/india/hyderabad/bus-service/hyderabad_local_ac_bus" className="agency-group"><h3>TSRTC Vajra AC Bus Service</h3></Link>
+<ul className = "no-bullets">
+  <Link href="/india/hyderabad/bus-service/hyderabad_local_bus"><h3>Telangana State Road Transport Corporation (hyderabad local bus)</h3></Link>
+  <Link href="/india/hyderabad/bus-service/hyderabad_local_electric_bus"><h3>TSRTC Pushpak (Airport Electric Buses)</h3></Link>
+  <Link href="/india/hyderabad/bus-service/hyderabad_local_long_distance_bus"><h3>TSRTC hyderabad Long Distance Buses</h3></Link>
+  <Link href="/india/hyderabad/bus-service/hyderabad_metro_feeder_bus"><h3>SVIDA (Metro Feeder Bus Services)</h3></Link>
+  <Link href="/india/hyderabad/bus-service/hyderabad_local_ac_bus"><h3>TSRTC Vajra AC Bus Service</h3></Link>
 </ul>
 <h1>Train agencies</h1>
-<ul className="agencies-wrapper wow fadeInDown" id="agency-type-3">
-  <Link href="/india/hyderabad/train-service/hyderabad_local_train" className="agency-group"><h3>Hyderabad Multi-Modal Transport System</h3></Link>
+<ul className = "no-bullets">
+  <Link href="/india/hyderabad/train-service/hyderabad_local_train"><h3>Hyderabad Multi-Modal Transport System</h3></Link>
 </ul>
 <h1>Metro Services</h1>
-<ul className="agencies-wrapper wow fadeInDown" id="agency-type-3">
-  <Link href="/india/hyderabad/train-service/metro" className="agency-group"><h3>Metro</h3></Link>
+<ul className = "no-bullets">
+  <Link href="/india/hyderabad/train-service/metro"><h3>Metro</h3></Link>
 </ul>
 
 </div >
@@ -83,4 +83,4 @@ const hyderabad = () => {
   );
 };
 
-export default hyderabad;
+export default Hyderabad;

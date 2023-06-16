@@ -73,7 +73,7 @@ export default function Table(props:any) {
         <tbody>
           {currentTableData.map((item:any )=> {
             return (
-              <tr key={item.id}>
+              <tr key={item.bus_id}>
                 {/* <td className = "td-class">{item.id}</td> */}
                 <td className = "td-class" onClick={()=>submitfn(item.bus_id,item.From,item.To)}><h6 className="highlighttext">{item.bus_id}</h6></td>
                 <td className = "td-class">{item.From}</td>

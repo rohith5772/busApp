@@ -247,16 +247,7 @@ id="start"
   </footer>
   </div>
   </main>
-  <style jsx>{`
-      /* Center the loader */
-      .loader {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /* Additional styling for the loader */
-      }
-    `}</style>
+  
     </div>
   );
 };

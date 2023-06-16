@@ -76,7 +76,7 @@ console.log(fromStop+"from data");
         query: {busId:busId,From:fromVal ,To:toVal },
       });*/
       router.push({
-        pathname: `/hyderabad/details/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
+        pathname: `/india/hyderabad/details/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
       });
     } catch (error) {
       console.error(error);
@@ -91,12 +91,15 @@ console.log(fromStop+"from data");
     <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-      <Link href="/">home</Link>
-      <Link href="/bustimings">Search Bus</Link>
-      <Link href="/allbuses">All Buses</Link>
-      <Link href="/contact">Contact</Link>
-      <Link href="/about">About</Link>
-      <Link href="/metrotimings" className="active">Metro Timings</Link>
+        <Link id = "home" href="/india/hyderabad/home">home</Link>
+        <Link id = "bustimings"  href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses"  href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact"  href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about"  href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" href="/india/hyderabad/metrotimings" className="active">Metro Timings</Link>
+
+      
+      
       <a href="javascript:void(0);" className="icon" onClick={myFunction}>
       <i className="fa fa-bars"></i>
       </a>

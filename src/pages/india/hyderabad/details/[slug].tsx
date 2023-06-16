@@ -157,7 +157,7 @@ console.log(props.stopList);
           query: {busId:busIdVal,From:fromVal ,To:toVal },
         });*/
         router.push({
-          pathname: `/detailingtimingpage/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
+          pathname: `/india/hyderabad/detailingtimingpage/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
         });
     }
     const [myArray, setMyArray] = useState(['']);
@@ -193,12 +193,12 @@ console.log(props.stopList);
 
       
   <div className="topnav" id="myTopnav">
-  <Link href="/" className="active">home</Link>
-  <Link href="/bustimings">Search Bus</Link>
-  <Link href="/allbuses">All Buses</Link>
-  <Link href="/contact">Contact</Link>
-  <Link href="/about">About</Link>
-  <Link href="/metrotimings">Metro Timings</Link>
+  <Link id = "home" href="/india/hyderabad/home"  className="active">home</Link>
+        <Link id = "bustimings"  href="/india/hyderabad/bustimings">Search Bus</Link>
+        <Link id = "allbuses"  href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact"  href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about"  href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" href="/india/hyderabad/metrotimings">Metro Timings</Link>
 
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>

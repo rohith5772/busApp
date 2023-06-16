@@ -43,8 +43,8 @@ export default function App(props: any) {
   const [bus_Id, setBus_id] = useState(props.bus_Id);
   const [from, setFrom] = useState(props.from);
   const [to, setTo] = useState(props.to);
-  const metaDescription = "Hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
-  const titleVal = "Hyderabad City Bus Routes TimeTable of route " +props.busId+ " from " +props.fromVal+ " to " +props.toVal;
+  const metaDescription = "hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
+  const titleVal = "hyderabad City Bus Routes TimeTable of route " +props.busId+ " from " +props.fromVal+ " to " +props.toVal;
   const toggleEditing = (valA: any, valB: any) => {
     console.log('Toggling editing with values:', valA, valB);
     setIsEditing(!isEditing);
@@ -172,13 +172,13 @@ export default function App(props: any) {
 
   return (
     <div>
-    <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
+    <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
     <meta name="description" content={metaDescription} />
-    <meta name="keyword" content="Hyderabad City Bus Routes, Hyderabad bus timings" />
+    <meta name="keyword" content="hyderabad City Bus Routes, hyderabad bus timings" />
 
-    <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+    <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
     <div className="topnav" id="myTopnav">
-      <Link href="/">Home</Link>
+      <Link href="/">home</Link>
       <Link href="/bustimings">Search Bus</Link>
       <Link href="/allbuses"  className="active">All Buses</Link>
       <Link href="/contact">Contact</Link>
@@ -196,7 +196,7 @@ export default function App(props: any) {
   <div className="col-sm-6">
 
   <h4><b>{stateVal.buses_list[0]?.bus_id}</b> City Bus Route &amp; Timings</h4>
-  <p>Hyderabad city bus no <strong>{stateVal.buses_list[0]?.bus_id}</strong> managed by <a href="http://www.tsrtc.telangana.gov.in/" target="_blank" rel="noopener noreferrer">TSRTC</a>, starts from <strong>{stateVal.buses_list[0]?.From}</strong> and ends at <strong>{stateVal.buses_list[0]?.To}</strong>. The city bus runs about <strong>{stateVal.buses_list[0].Stop_Timings.length} trips</strong> (one way) daily and covers a total of <strong>{stateVal.buses_list.length} bus stops</strong> during its trip.</p>
+  <p>hyderabad city bus no <strong>{stateVal.buses_list[0]?.bus_id}</strong> managed by <a href="http://www.tsrtc.telangana.gov.in/" target="_blank" rel="noopener noreferrer">TSRTC</a>, starts from <strong>{stateVal.buses_list[0]?.From}</strong> and ends at <strong>{stateVal.buses_list[0]?.To}</strong>. The city bus runs about <strong>{stateVal.buses_list[0].Stop_Timings.length} trips</strong> (one way) daily and covers a total of <strong>{stateVal.buses_list.length} bus stops</strong> during its trip.</p>
   <ul className="stops-list bordered experiences">
 
   {stateVal.buses_list.map((bus: { bus_id: React.Key | null | undefined; 

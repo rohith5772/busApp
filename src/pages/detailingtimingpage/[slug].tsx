@@ -24,7 +24,7 @@ const  DetailingTimings = (props: any) =>{
   const fromVal = router.query.From;
   const toVal = router.query.To;
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
-  const titleVal = "Hyderabad City Bus Routes TimeTable of route " +props.bus_Id+ " from " +props.from+ " to " +props.to;
+  const titleVal = "hyderabad City Bus Routes TimeTable of route " +props.bus_Id+ " from " +props.from+ " to " +props.to;
 
   useEffect(() => {
   /*  async function fetchResult() {
@@ -52,20 +52,20 @@ const  DetailingTimings = (props: any) =>{
     }
     }
     return <div>
-      <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
-   <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+      <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+   <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
        {/* <div>{location.state[0]}</div>
        <div>{location.state[1]}</div>
        <div>{location.state[2]}</div>
-        <button onClick={() => { next("/") }}>Back To Home</button> */}
+        <button onClick={() => { next("/") }}>Back To home</button> */}
         {/* {location.state.map((bus: { id: React.Key | null | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }, index: number) => (
         <div key={index}>
           <p>{index}. {bus.name}</p>
         </div>
       ))} */}
   <div className="topnav" id="myTopnav">
-  <Link href="/" className="active">Home</Link>
+  <Link href="/" className="active">home</Link>
   <Link href="/bustimings">Search Bus</Link>
   <Link href="/allbuses">All Buses</Link>
   <Link href="/contact">Contact</Link>

@@ -5,7 +5,7 @@ import axios from "axios";
 import Select from "react-select";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Loader from '../components/loader';
+import Loader from '../../../components/loader';
 
 //map
 //from,to text fields
@@ -1172,7 +1172,7 @@ const BusTimings = ({ products, totalProducts, currentPage }: any) => {
     console.log(json);
     */
     router.push({
-      pathname: `/busroutefromto/hyderabad-city-bus-${encodeURIComponent(selectedOptions.label)}`,
+      pathname: `/india/hyderabad/busroutefromto/hyderabad-city-bus-${encodeURIComponent(selectedOptions.label)}`,
     });}
     catch (err){
       console.log(err)
@@ -1208,12 +1208,12 @@ const BusTimings = ({ products, totalProducts, currentPage }: any) => {
 
       {data ? <div>{JSON.stringify(data)}</div> : <div>Loading...</div>} */}
    <div className="topnav" id="myTopnav">
-   <Link id = "home" href="/" className="commonclass">home</Link>
-  <Link id = "bustimings" className="commonclass" href="/https://cityroutemapper.com/bustimings">Search Bus</Link>
-  <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
-  <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
-  <Link id = "about" className="commonclass" href="/about">About</Link>
-  <Link id = "metrotimings" className="commonclass" href="/metrotimings">Metro Timings</Link>
+   <Link id = "home" href="/india/hyderabad/home" className="commonclass">home</Link>
+        <Link id = "bustimings" className="commonclass" href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses" className="commonclass" href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact" className="commonclass" href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about" className="commonclass" href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" className="commonclass" href="/india/hyderabad/metrotimings">Metro Timings</Link>
 
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
@@ -1246,16 +1246,7 @@ id="start"
 </div>
 </main>
 
-<style jsx>{`
-      /* Center the loader */
-      .loader {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /* Additional styling for the loader */
-      }
-    `}</style>
+
 
     </div>
   );

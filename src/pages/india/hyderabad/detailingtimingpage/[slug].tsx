@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
 
 interface BusData {
   buses_list: {
@@ -23,8 +24,10 @@ const  DetailingTimings = (props: any) =>{
   const fromVal = router.query.From;
   const toVal = router.query.To;
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
-  /*useEffect(() => {
-    async function fetchResult() {
+  const titleVal = "hyderabad City Bus Routes TimeTable of route " +props.bus_Id+ " from " +props.from+ " to " +props.to;
+
+  useEffect(() => {
+  /*  async function fetchResult() {
       try {
         const response = await fetch('http://127.0.0.1:5000/busroutewithtimings');
         const data: BusData = await response.json();
@@ -36,8 +39,10 @@ const  DetailingTimings = (props: any) =>{
       }
     }
     fetchResult();
-    
-       },[] );*/
+    */
+    ReactGA.pageview(window.location.href);
+
+       },[] );
     function myFunction() {
     var x = (document.getElementById("myTopnav") as HTMLInputElement);
     if (x.className === "topnav") {
@@ -47,6 +52,7 @@ const  DetailingTimings = (props: any) =>{
     }
     }
     return <div>
+      <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
    <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
        {/* <div>{location.state[0]}</div>
@@ -59,11 +65,13 @@ const  DetailingTimings = (props: any) =>{
         </div>
       ))} */}
   <div className="topnav" id="myTopnav">
-  <Link href="/" className="active">home</Link>
-  <Link href="/bustimings">Search Bus</Link>
-  <Link href="/allbuses">All Buses</Link>
-  <Link href="/contact">Contact</Link>
-  <Link href="/about">About</Link>
+  <Link id = "home" href="/india/hyderabad/home">home</Link>
+        <Link id = "bustimings"  href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses"  href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact"  href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about"  href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" href="/india/hyderabad/metrotimings">Metro Timings</Link>
+
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>
@@ -108,10 +116,17 @@ const  DetailingTimings = (props: any) =>{
     </div>
 }
 export async function getServerSideProps (context: any) {
-  console.log(context.query.busId,context.query.From,context.query.To,"test");
-  const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
+  var val = context.query.slug;
+  var busId = val.split('-')[3];
+  var from = val.split('-')[7];
+  console.log(busId,from); 
+  var to = val.split('-')[9];
+  console.log(to);
+  //const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+busId+"&fromVal="+from+"&toVal="+to);
+  const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+from+"&toVal="+to);
+
   const stopList: BusData = await response.json();
 return {
-props: {stopList}, // will be passed to the page component as props
+props: {stopList,from,to}, // will be passed to the page component as props
 }}
 export default DetailingTimings;

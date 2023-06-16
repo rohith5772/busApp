@@ -34,9 +34,9 @@ const  BusIdRouteFromTo = (props: any) =>{
   //const [stateVal, setStateVal] = useState<BusData>({ buses_list_from: [],buses_list_to: [] });
   console.log(props.busesList);
   const [stateVal, setStateVal] = useState<BusData>(props.busesList);
-  const metaContentDescriptionBusId = "Hyderabad City Map and Bus Routes,Get Hyderabad City Bus Route"+props.bus_Id+"Time Table, Timings";
-  const metaContentKeywordBusId = "Hyderabad City Bus,Hyderabad Bus Route"+props.bus_Id+",   find bus schedule, all routes of hyderabad city bus,bus timetable"
-  const titleVal = "Hyderabad City Bus Route of " +props.busId;
+  const metaContentDescriptionBusId = "hyderabad City Map and Bus Routes,Get hyderabad City Bus Route"+props.bus_Id+"Time Table, Timings";
+  const metaContentKeywordBusId = "hyderabad City Bus,hyderabad Bus Route"+props.bus_Id+",   find bus schedule, all routes of hyderabad city bus,bus timetable"
+  const titleVal = "hyderabad City Bus Route of " +props.busId;
 
   console.log(props.busesList);
   //setStateVal(props.myProps);
@@ -71,13 +71,13 @@ const  BusIdRouteFromTo = (props: any) =>{
 // To display the details of the first bus going from Nagole to Raidurg:
   return (
     <div>
-        <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,bus schedule,"/>
+        <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,bus schedule,"/>
         <meta name = "keyword" content={metaContentKeywordBusId}/>
 <meta name="description" content={metaContentDescriptionBusId}></meta>
-    <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+    <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-        <Link href="/">Home</Link>
+        <Link href="/">home</Link>
   <Link href="/bustimings" className="active">Search Bus</Link>
   <Link href="/allbuses">All Buses</Link>
   <Link href="/contact">Contact</Link>
@@ -89,7 +89,7 @@ const  BusIdRouteFromTo = (props: any) =>{
   </a>
 </div>
     <main>
-    <h3 className="h3class allignmentClass">Hyderabad City Bus Stops of Route No: {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["bus_id"]} From {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["From"]} to {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["To"]}
+    <h3 className="h3class allignmentClass">hyderabad City Bus Stops of Route No: {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["bus_id"]} From {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["From"]} to {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["To"]}
 </h3>
     <div className="flex-wrapper">
 
@@ -119,7 +119,7 @@ const  BusIdRouteFromTo = (props: any) =>{
       </tbody>
       
     </table> 
-    <h3 className="h3class allignmentClass">Hyderabad City Bus Stops of Route No:{stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["bus_id"]} From {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["To"]} to {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["From"]}</h3>
+    <h3 className="h3class allignmentClass">hyderabad City Bus Stops of Route No:{stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["bus_id"]} From {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["To"]} to {stateVal.buses_list_from?.length > 0 && stateVal.buses_list_from[0]["From"]}</h3>
     <table>
       <thead>
         <tr>

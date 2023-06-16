@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import Pagination from '../pagination';
-import data from '../examples/data/hydbuses.json';
+import Pagination from '../../../pagination';
+import data from '../../../examples/data/metro.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Link from 'next/link';
-import Loader from '../components/loader';
+import Loader from '../../../components/loader';
 
 let PageSize = 10;
 
@@ -12,6 +12,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  let [filename, setfilename] = useState("");
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -22,7 +23,7 @@ export default function App() {
       
     const currentUrl = window.location.href;
     console.log(currentUrl);
-    const hasWord = currentUrl.includes('bustimings');
+    const hasWord = currentUrl.includes('allbuses');
 
     console.log(hasWord+"hasWord");
     document.getElementsByClassName('commonclass');
@@ -34,7 +35,9 @@ export default function App() {
       var val = (document.getElementById("allbuses") as HTMLInputElement);
       val.className+=" active";
     }
-
+    filename = currentUrl.split("/")[5];
+    console.log(filename);
+    setfilename(filename);
   }, []);
   function myFunction() {
     var x = (document.getElementById("myTopnav") as HTMLInputElement);
@@ -63,7 +66,8 @@ export default function App() {
           query: {busId:busId,From:fromVal ,To:toVal },
         });*/
         router.push({
-          pathname: `/detailbusjourney/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
+          pathname: `/india/hyderabad/detailbusjourney/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
+
         });
       } catch (error) {
         console.error(error);
@@ -88,12 +92,12 @@ export default function App() {
 
     <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
     <div className="topnav" id="myTopnav">
-   <Link id = "home" href="/" className="commonclass">home</Link>
-  <Link id = "bustimings" className="commonclass" href="/bustimings">Search Bus</Link>
-  <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
-  <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
-  <Link id = "about" className="commonclass" href="/about">About</Link>
-  <Link id = "metrotimings" className="commonclass" href="/metrotimings">Metro Timings</Link>
+    <Link id = "home" href="/india/hyderabad/home" className="commonclass">home</Link>
+        <Link id = "bustimings" className="commonclass" href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses" className="commonclass" href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact" className="commonclass" href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about" className="commonclass" href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" className="commonclass" href="/india/hyderabad/metrotimings">Metro Timings</Link>
 
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
@@ -139,16 +143,7 @@ export default function App() {
   </footer>
 </div>
 </main>
-<style jsx>{`
-      /* Center the loader */
-      .loader {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /* Additional styling for the loader */
-      }
-    `}</style>
+
 
     </div>
   );

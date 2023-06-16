@@ -38,12 +38,12 @@ const  ContactUs = () =>{
     <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-        <Link id = "home" href="/" className="commonclass">home</Link>
-  <Link id = "bustimings" className="commonclass" href="/bustimings">Search Bus</Link>
-  <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
-  <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
-  <Link id = "about" className="commonclass" href="/about">About</Link>
-  <Link id = "metrotimings" className="commonclass" href="/metrotimings">Metro Timings</Link>
+        <Link id = "home" href="/india/hyderabad/home" className="commonclass">home</Link>
+        <Link id = "bustimings" className="commonclass" href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses" className="commonclass" href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact" className="commonclass" href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about" className="commonclass" href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" className="commonclass" href="/india/hyderabad/metrotimings">Metro Timings</Link>
 
       <a href="javascript:void(0);" className="icon" onClick={myFunction}>
       <i className="fa fa-bars"></i>

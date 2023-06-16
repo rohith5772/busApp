@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import Pagination from '../pagination';
-import data from '../examples/data/mock-data.json';
+import Pagination from '../../../../pagination';
+import data from '../../../../examples/data/mock-data.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
 
 let PageSize = 10;
 interface BusData {
@@ -39,16 +40,19 @@ export default function App(props: any) {
   //const arrParticularStopTiming: Array<string> = [];
   const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
   const [isEditing, setIsEditing] = useState(false);
-
-
+  const [bus_Id, setBus_id] = useState(props.bus_Id);
+  const [from, setFrom] = useState(props.from);
+  const [to, setTo] = useState(props.to);
+  const metaDescription = "hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
+  const titleVal = "hyderabad City Bus Routes TimeTable of route " +props.busId+ " from " +props.fromVal+ " to " +props.toVal;
   const toggleEditing = (valA: any, valB: any) => {
     console.log('Toggling editing with values:', valA, valB);
     setIsEditing(!isEditing);
   };
 
   console.log(props.busesList);
-  /*useEffect(() => {
-    async function fetchResult() {
+  useEffect(() => {
+  /*  async function fetchResult() {
       try { 
         const params = new URLSearchParams(location.search);
 
@@ -64,9 +68,10 @@ export default function App(props: any) {
         console.error(error);
       } 
     }
-    fetchResult();
-    
-       }, []);*/ 
+    fetchResult();*/ 
+    ReactGA.pageview(window.location.href);
+
+       }, []);
        
   const arr: any[] = [];    
   function openPopup(event:any) {
@@ -167,13 +172,19 @@ export default function App(props: any) {
 
   return (
     <div>
+    <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+    <meta name="description" content={metaDescription} />
+    <meta name="keyword" content="hyderabad City Bus Routes, hyderabad bus timings" />
+
     <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
     <div className="topnav" id="myTopnav">
-      <Link href="/">home</Link>
-      <Link href="/bustimings">Search Bus</Link>
-      <Link href="/allbuses"  className="active">All Buses</Link>
-      <Link href="/contact">Contact</Link>
-      <Link href="/about">About</Link>
+    <Link id = "home" href="/india/hyderabad">home</Link>
+        <Link id = "bustimings"  href="/india/hyderabad/bustimings">Search Bus</Link>
+        <Link id = "allbuses"  href="/india/hyderabad/allbuses" className="active">All Buses</Link>
+        <Link id = "contact"  href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about"  href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" href="/india/hyderabad/metrotimings">Metro Timings</Link>
+
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>
@@ -185,7 +196,7 @@ export default function App(props: any) {
   <div className="col-sm-6">
 
   <h4><b>{stateVal.buses_list[0]?.bus_id}</b> City Bus Route &amp; Timings</h4>
-  <p>hyderabad city bus no <strong>{stateVal.buses_list[0]?.bus_id}</strong> managed by <a href="http://www.tsrtc.telangana.gov.in/" target="_blank" rel="noopener noreferrer">TSRTC</a>, starts from <strong>{stateVal.buses_list[0]?.From}</strong> and ends at <strong>{stateVal.buses_list[0]?.To}</strong>. The city bus runs about <strong>{stateVal.buses_list[0].Stop_Timings.length} trips</strong> (one way) daily and covers a total of <strong>{stateVal.buses_list.length} bus stops</strong> during its trip.</p>
+  <p>hyderabad city bus no <strong>{stateVal.buses_list[0]?.bus_id}</strong> managed by <a href="http://www.tsrtc.telangana.gov.in/" target="_blank" rel="noopener noreferrer">TSRTC</a>, starts from <strong>{stateVal.buses_list[0]?.From}</strong> and ends at <strong>{stateVal.buses_list[0]?.To}</strong>. The city bus covers a total of <strong>{stateVal.buses_list.length} bus stops</strong> during its trip.</p>
   <ul className="stops-list bordered experiences">
 
   {stateVal.buses_list.map((bus: { bus_id: React.Key | null | undefined; 
@@ -196,7 +207,7 @@ export default function App(props: any) {
     },index: any) => (
         <li key={bus.bus_id}>
   <div className="stop-wrapper" >{bus.stop_id}</div>
-  <button className="schedule-link upcoming-arrivals-link" onClick={openPopup} value={index}>Upcoming Arrivals</button>
+  {/*<button className="schedule-link upcoming-arrivals-link" onClick={openPopup} value={index}>Upcoming Arrivals</button>*/}
       
       <Popup
         open={isPopupOpen}
@@ -210,7 +221,7 @@ export default function App(props: any) {
       ))}</ul>
       </div>
       <div className="col-sm-6 text-center">
-      POPULAR BUS ROUTES
+      {/*POPULAR BUS ROUTES
       <br></br>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
@@ -222,7 +233,7 @@ export default function App(props: any) {
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
       <button className="schedule-link upcoming-arrivals-link" onClick={(e) => submitfn("Nagole", "Raidurg")}> Click to view buses from Nagole to Raidurg</button>
-
+    */}
       </div>
       </div>
       </div>
@@ -238,9 +249,26 @@ export default function App(props: any) {
 }
 export async function getServerSideProps (context: any) {
   
-  const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings?busId="+context.query.busId+"&fromVal="+context.query.From+"&toVal="+context.query.To);
-  const busesList = await response.json();
+  console.log("zs");
+  console.log(context.query.slug);
+  var busid = context.query.slug;
+  var busId = busid.split('-')[3];
+  var val = context.query.slug;
+  var fromVal = val.split('-')[7];
+  var toVal = val.split('-')[9];
+  var filename = val.split('-')[10];
+  var country = val.split('-')[11];
+  var city = val.split('-')[12];
+  var service = val.split('-')[13]+'-'+val.split('-')[14];
+  console.log(busId,fromVal,toVal,service,filename);  
+
+  //const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+  //const response =  await fetch("http://127.0.0.1:5000/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
+  const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal+"&filename="+filename+"&country="+country+"&city="+city+"&service="+service);
+
+  const busesList: BusData = await response.json();
+  
 return {
-props: {busesList}, // will be passed to the page component as props
+props: {busesList,busId,fromVal,toVal}, // will be passed to the page component as props
 }
 }

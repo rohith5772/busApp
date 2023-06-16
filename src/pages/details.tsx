@@ -164,11 +164,11 @@ const  DetailingPage = (props: any) =>{
     };
 
     return <div>
-      <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+      <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
       
   <div className="topnav" id="myTopnav">
-  <Link href="/" className="active">Home</Link>
+  <Link href="/" className="active">home</Link>
   <Link href="/bustimings">Search Bus</Link>
   <Link href="/allbuses">All Buses</Link>
   <Link href="/contact">Contact</Link>
@@ -178,7 +178,7 @@ const  DetailingPage = (props: any) =>{
   </a>
 </div>
     <main>
-    <h3 className="h3class allignmentClass">Hyderabad City Bus Stops of Route No: {stateVal.buses_list.length > 0 && stateVal.buses_list[0].bus_id}</h3>
+    <h3 className="h3class allignmentClass">hyderabad City Bus Stops of Route No: {stateVal.buses_list.length > 0 && stateVal.buses_list[0].bus_id}</h3>
 
     <div className="flex-wrapper">
 

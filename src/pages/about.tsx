@@ -31,14 +31,14 @@ const  About = () =>{
     }
   return (
     <div>  
-            <title>All Schedule Timing TimeTable of Hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
-      <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,Hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,Hyderabad City Bus"/>
-          <meta name="description" content="Find Hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
+            <title>All Schedule Timing TimeTable of hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+      <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,hyderabad City Bus"/>
+          <meta name="description" content="Find hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
 
-    <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+    <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-        <Link id = "home" href="/" className="commonclass">Home</Link>
+        <Link id = "home" href="/" className="commonclass">home</Link>
   <Link id = "bustimings" className="commonclass" href="/bustimings">Search Bus</Link>
   <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
   <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
@@ -58,8 +58,8 @@ const  About = () =>{
   <div className="col-sm-6">
     
        
-  <p>Welcome to City Route Mapper, a comprehensive web platform formed by a love of travel and a strong appreciation for Hyderabad`s rich tourism tapestry.</p>
-<p>Since its founding, cityroutemapper.com has been committed in contributing to travel and tourism more accessible, efficient, and pleasant for millions of people in Hyderabad and across globe.</p>
+  <p>Welcome to City Route Mapper, a comprehensive web platform formed by a love of travel and a strong appreciation for hyderabad`s rich tourism tapestry.</p>
+<p>Since its founding, cityroutemapper.com has been committed in contributing to travel and tourism more accessible, efficient, and pleasant for millions of people in hyderabad and across globe.</p>
 <p>Our objective at cityroutemapper.com is to give passengers the freedom to make travel arrangements at their leisure. We are dedicated to providing a simple planning process, up-to-date information, and great customer service.</p>
 </div>
 </div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ReactGA from 'react-ga';
+import Loader from '../../../../components/loader';
 
 interface BusData {
   buses_list: {
@@ -14,12 +16,27 @@ interface BusData {
     stop_id: string;
   }[];
 }
-const  ListingPage = (props: any) =>{
+const  ListingPages = (props: any) =>{
   const router = useRouter();
   const { json } = router.query;
   const fromVal = router.query.From;
   const toVal = router.query.To;
+  const slug = router.query.slug as string;
+  const [loading, setLoading] = useState(false);
+
+  // Split the slug into "from" and "to" parts
+  const [from, to] = slug.split('-').map(decodeURIComponent);
+  const alertStyle = {
+    color: 'red',
+    fontSize: '24px',
+    fontWeight: 'bold',
+  };
   const [stateVal, setStateVal] = useState<BusData>(props.stopList);
+  const [fromStop, setFromStop] = useState(props.from);
+  const [toStop, setToStop] = useState(props.to);
+  const titleVal = "hyderabad City Bus Routes TimeTable from "+props.from+" to "+props.to;
+  var headingVal = "Direct Bus Routes From " + props.from + " To " + props.to;
+console.log(fromStop+"from data");
   function submitfn(busId: string,From:string,To:string) {
     console.log(busId,From,To);
     fetchData(busId,From,To);
@@ -32,8 +49,8 @@ const  ListingPage = (props: any) =>{
     x.className = "topnav";
   }
   }
-  /*useEffect(() => {
-    async function fetchResult() {
+  useEffect(() => {
+  /*  async function fetchResult() {
       try {
         const response = await fetch("https://rohith5772.pythonanywhere.com?from="+fromVal+"&to="+toVal);
         const data: BusData = await response.json();
@@ -45,8 +62,10 @@ const  ListingPage = (props: any) =>{
         console.error(error);
       }
     }
-    fetchResult();
-  }, []);*/
+    fetchResult();*/
+        ReactGA.pageview(window.location.href);
+
+  }, []);
  
   async function fetchData(busId: string, fromVal: string, toVal: string) {
     try {
@@ -57,34 +76,51 @@ const  ListingPage = (props: any) =>{
         }
       );
       const json = await response.json();*/
-      router.push({
+      /*router.push({
         pathname: '/details',
         query: {busId:busId,From:fromVal ,To:toVal },
+      });*/
+      router.push({
+        pathname: `/india/hyderabad/details/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}`,
       });
     } catch (error) {
       console.error(error);
     }
-  }
+    finally{
+      setLoading(false)
+    }
+    
 
+  }
+  useEffect(() => {
+    setLoading(true)
+  }, [router])
   return (
-    <div>  
-    <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+    <div>
+     {
+        !loading ? <Loader/> : <></>  
+     }                
+    <title>{titleVal}</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+
+    <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
         <div className="topnav" id="myTopnav">
-      <Link href="/" className="active">Home</Link>
-      <Link href="/bustimings">Search Bus</Link>
-      <Link href="/allbuses">All Buses</Link>
-      <Link href="/contact">Contact</Link>
-      <Link href="/about">About</Link>
+        <Link id = "home" href="/india/hyderabad/home" className="active">home</Link>
+        <Link id = "bustimings"  href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses"  href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact"  href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about"  href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" href="/india/hyderabad/metrotimings">Metro Timings</Link>
+
       <a href="javascript:void(0);" className="icon" onClick={myFunction}>
       <i className="fa fa-bars"></i>
       </a>
     </div> 
      <main>
-     <h3 className="h3class allignmentClass">Direct Bus Routes From {stateVal.buses_list.length > 0 && stateVal.buses_list[0].From} Bus Stop To {stateVal.buses_list.length > 0 && stateVal.buses_list[0].To}</h3>
+     <h3 className="h3class allignmentClass">{headingVal}</h3>
 
         <div className="flex-wrapper">
-
+        {stateVal.buses_list.length!=0?(
       <table className="center">
         <thead>
         <tr>
@@ -103,13 +139,13 @@ const  ListingPage = (props: any) =>{
         </tr>
       ))}
     </tbody>
-    </table>
+    </table>):(<h1 className="h3class allignmentClass" style={alertStyle}>Sorry, No buses are available in this route!!!</h1>)}
   <footer>
     <p>&copy; 2023 Cityroutemapper</p>
   </footer>
   </div>
   </main>
-
+  
   </div>
   );
 };
@@ -117,14 +153,21 @@ const  ListingPage = (props: any) =>{
  
 export async function getServerSideProps  (context: any) {
   console.log("zs");
-  console.log(context.query.From,context.query.To,"abc");
-
-  const src = "https://rohith5772.pythonanywhere.com/?from="+context.query.From+"&to="+context.query.To; 
+  console.log(context.query.slug);
+  var val = context.query.slug;
+  var from = val.split('-')[6];
+  console.log(from); 
+  var to = val.split('-')[8];
+  console.log(to);
+  //const src = "https://rohith5772.pythonanywhere.com?from="+from+"&to="+to; 
+  //const src =  "http://127.0.0.1:5000/hello?from="+from+"&to="+to; 
+  const src = "https://aj4zqcmp6f2m5jkta3sbdtdcye0nskfo.lambda-url.ap-south-1.on.aws/?From="+from+"&To="+to;
   const response = await fetch(src);
   const stopList: BusData = await response.json();
   
   return {
-    props: { stopList }, // will be passed to the page component as props
+    props: { stopList,from,to }, // will be passed to the page component as props
+   
   };
 }
-export default ListingPage;
+export default ListingPages;

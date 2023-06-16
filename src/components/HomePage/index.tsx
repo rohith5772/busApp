@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import ReactGA from 'react-ga';
 
 import { useEffect,useState } from 'react'
-//import './HomePage.css';
+//import './homePage.css';
 import axios from "axios";
 import hydImg from './hyd-map.png';
 import Select from "react-select";
@@ -330,7 +330,7 @@ const HomePage = () => {
     {value: "Gautam Nagar water tank", label:"Gautam Nagar water tank"},
     {value: "Gayatri Hills", label:"Gayatri Hills"},
     {value: "Gayatri Nagar", label:"Gayatri Nagar"},
-    {value: "Geological Survey of India", label:"Geological Survey of India"},
+    {value: "Geological Survey of india", label:"Geological Survey of india"},
     {value: "Ghanpur Bus Stop", label:"Ghanpur Bus Stop"},
     {value: "Ghatkesar Bus Stop", label:"Ghatkesar Bus Stop"},
     {value: "Ghattuppal", label:"Ghattuppal"},
@@ -385,7 +385,7 @@ const HomePage = () => {
     {value: "Hanuman Temple(Narsingi)", label:"Hanuman Temple(Narsingi)"},
     {value: "Hanuman Temple(Tirumulgherry)", label:"Hanuman Temple(Tirumulgherry)"},
     {value: "Hanumanpet", label:"Hanumanpet"},
-    {value: "Happy Home", label:"Happy Home"},
+    {value: "Happy home", label:"Happy home"},
     {value: "Hari Puri Colony Park", label:"Hari Puri Colony Park"},
     {value: "Harshaguda", label:"Harshaguda"},
     {value: "Hasmatpet", label:"Hasmatpet"},
@@ -935,7 +935,7 @@ const HomePage = () => {
     {value: "Sharada Nagar Bus Stop", label:"Sharada Nagar Bus Stop"},
     {value: "Sharada(officers colony)", label:"Sharada(officers colony)"},
     {value: "Sheeshamahal", label:"Sheeshamahal"},
-    {value: "Shenoy Nursing Home", label:"Shenoy Nursing Home"},
+    {value: "Shenoy Nursing home", label:"Shenoy Nursing home"},
     {value: "Sheriguda", label:"Sheriguda"},
     {value: "Sherlingampally", label:"Sherlingampally"},
     {value: "Shilparamam parking(hitech city)", label:"Shilparamam parking(hitech city)"},
@@ -950,7 +950,7 @@ const HomePage = () => {
     {value: "Sikh Village Rd", label:"Sikh Village Rd"},
     {value: "Sikindlapur", label:"Sikindlapur"},
     {value: "Singaram", label:"Singaram"},
-    {value: "Sita Homes Colony", label:"Sita Homes Colony"},
+    {value: "Sita homes Colony", label:"Sita homes Colony"},
     {value: "Sitafalmandi MMTS", label:"Sitafalmandi MMTS"},
     {value: "Sitaram Bagh Bus Stop", label:"Sitaram Bagh Bus Stop"},
     {value: "Sithamrai", label:"Sithamrai"},
@@ -969,13 +969,13 @@ const HomePage = () => {
     {value: "Sri Ram Nagar(Chintal)", label:"Sri Ram Nagar(Chintal)"},
     {value: "Sri Sai Nagar Lake", label:"Sri Sai Nagar Lake"},
     {value: "Sri Venkateshwara Colony", label:"Sri Venkateshwara Colony"},
-    {value: "Sridevi Nursing Home", label:"Sridevi Nursing Home"},
+    {value: "Sridevi Nursing home", label:"Sridevi Nursing home"},
     {value: "Srinivas Nagar Bus Stop", label:"Srinivas Nagar Bus Stop"},
     {value: "Sripuram Colony Stop", label:"Sripuram Colony Stop"},
     {value: "Sriramana Colony", label:"Sriramana Colony"},
     {value: "Srirangavaram", label:"Srirangavaram"},
     {value: "State Archieves", label:"State Archieves"},
-    {value: "State Home", label:"State Home"},
+    {value: "State home", label:"State home"},
     {value: "Street no 8 Bus Stop", label:"Street no 8 Bus Stop"},
     {value: "Subhadra Nagar(Vanasthalipuram)", label:"Subhadra Nagar(Vanasthalipuram)"},
     {value: "Subhash Nagar(Alwal)", label:"Subhash Nagar(Alwal)"},
@@ -991,7 +991,7 @@ const HomePage = () => {
     {value: "Suraram", label:"Suraram"},
     {value: "Suraram X Road", label:"Suraram X Road"},
     {value: "Suresh Talkies", label:"Suresh Talkies"},
-    {value: "Survey Of India", label:"Survey Of India"},
+    {value: "Survey Of india", label:"Survey Of india"},
     {value: "Surya Nagar(Alwal)", label:"Surya Nagar(Alwal)"},
     {value: "Sushma Theater", label:"Sushma Theater"},
     {value: "Sutariguda", label:"Sutariguda"},
@@ -1194,14 +1194,14 @@ const HomePage = () => {
       {
         !loading ? <Loader/> : <></>  
       }
-      <title>All Schedule Timing TimeTable of Hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, Hyderabad City Bus,,bus schedule,"/>
-      <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,Hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,Hyderabad City Bus"/>
-          <meta name="description" content="Find Hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
-              <h1 className="h1class"><a href="" title="Hyderabad Bus Routes " target="_self">Hyderabad City Bus Routes</a></h1>
+      <title>All Schedule Timing TimeTable of hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+      <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,hyderabad City Bus"/>
+          <meta name="description" content="Find hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
+              <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
-   <Link id = "home" href="/" className="commonclass">Home</Link>
+   <Link id = "home" href="/" className="commonclass">home</Link>
   <Link id = "bustimings" className="commonclass" href="/bustimings" >Search Bus</Link>
   <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
   <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
@@ -1218,65 +1218,32 @@ const HomePage = () => {
 <div className="container">
   
   <div className="row">
-  <h3 className="h3class">Enter Starting and Destination Bus Stop</h3>
-
-  <div className="col-sm-6" id="form">
     
-<Select className="optclass"
-id="start"
-  options={optionList}
-  value={selectedOptionsFrom}
-  placeholder="Starting Bus Stop"
-  onChange={handleSelectFrom}
-  isSearchable={true}
-/>
+  <ul className = "no-bullets">
+    <li><a href="/india/hyderabad">india</a></li>
+    <li><a href="#">Australia</a></li>
+    <li><a href="#">United Kingdom</a></li>
+    <li><a href="#">United States</a></li>
+    <li><a href="#">Colombia</a></li>
+    <li><a href="#">Indonesia</a></li>
+    <li><a href="#">Spain</a></li>
+    <li><a href="#">Brazil</a></li>
+    <li><a href="#">Mexico</a></li>
+    <li><a href="#">Turkey</a></li>
+    <li><a href="#">Italy</a></li>
+  </ul>  
 
-<Select className="optclass"
-  id="end"
-  options={optionList}
-  value={selectedOptionsTo}
-  placeholder="Destination Bus Stop"
-  onChange={handleSelectTo}
-  isSearchable={true}
-/>
-<h6 className="h6class">Hint: Type initial few characters</h6>
-<button onClick={submitfn} type="submit">Get Route</button>
 
-</div>
-<div className="col-sm-6"><Image src={hydImg} className="responsive" alt={''} />
+
   </div>
-  </div>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">About Hyderabad City Bus Service</h3>
-  <p className="descriptiontext">This website offers information about timetable, timings, various bus routes, and schedules for all buses running in Hyderabad. You can easily find a list of all buses running in the city at a single place along with their stops and route information.</p>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Bus Routes</h3>
-  <p className="descriptiontext">The TSRTC operates a comprehensive bus service in Hyderabad and Secunderabad and its nearby places.City buses are available with various options, such as Metro Deluxe,Ordinary,Metro Express.They cover almost all parts of the city which includes important landmarks and tourist visited destinations.</p>
-  <p className="descriptiontext">The intercity buses offers affordable and convinient transportation to other towns and cities of the state.It also provides transportation services to neighbouring states such as Andhra Pradesh, Karnataka and Maharashtra.</p>
-  <p className="descriptiontext">In addition to this, private bus services are available in the twin cities, offering different routes with more services,comforts and amenities, at a little higher prices than the TSRTC city buses. The Hyderabad city bus service is an important part of Hyderabad`s transportation system, connecting cities and people.</p>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Bus Timings</h3>
-  <p className="descriptiontext">Hyderbad has a very big network of routes, which exceeds 1000 in number.City buses help in covering both the city and the outskirts.The buses start early in the morning and end at late mid night.In addition to them some routes have buses round the clock providing added convinience to the people. They have the option to select AC buses as well with minimal cost.People who wish to travel to the airport has a dedicated bus service giving them premium services.</p>
-  <p className="descriptiontext">Here Hyderabad city bus route guide is also available.</p>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Tour Bus</h3>
-  <p className="descriptiontext">Are you exited to visit Hyderabad and explore various tourism loactions? If your answer is yes, then the TSRTC city bus service will do the best for you.Tourists coming from various places can find buses to all famous locations such as Charminar, Golconda, Hussain Sagar, Ramoji Film City and the list goes on.There is a bus exclusively running from Hyderabad city to Ramoji Film City. I myself found this service very benificial. I advise people to use this option if you are about to visit Ramoji Film City.</p>
-  <h3 className="h3classHeadingOfEachSectiontext spacingClass">Hyderabad City Bus Pass</h3>
-  <p className="descriptiontext">The TSRTC provides many different types of bus passes in the city,which includes the General Bus Pass, which is available at as low as Rs.700 per month. This bus pass will allow passengers to board on ordinary category buses in the city as well as Suburban areas.</p>
-  <p className="descriptiontext">There is another category of bus pass which is `Metro Express` pass. It enables people to board on both general buses and Metro Express.The charges are Rs.800 per month for issuing this card.Similarly there is another category pass `Metro Luxury AC` pass which is issued Rs.2000 per month. This card allows passengers to board all types of buses irrespective of category.The issued passes cannot be transferred from one person to another and so they have attached photographs on ID cards.A cost of Rs.25 is charged in addition above all for ID card to be issued.The bus passes become invalid after an year which has be renewed.</p>
-  
+ 
 </div >
   <footer>
     <p>&copy; 2023 Cityroutemapper</p>
   </footer>
   </div>
   </main>
-  <style jsx>{`
-      /* Center the loader */
-      .loader {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /* Additional styling for the loader */
-      }
-    `}</style>
+  
     </div>
   );
 };

@@ -11,7 +11,7 @@ import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import Loader from '../components/loader';
+import Loader from '../../../components/loader';
 //map
 //from,to text fields
 //search button
@@ -156,7 +156,7 @@ const HomePage = () => {
       query: {From:selectedOptionsFrom.label ,To:selectedOptionsTo.label}
     }); */
     router.push({
-      pathname: `/metro/hyderabad-city-trains-that-goes-from-${encodeURIComponent(selectedOptionsFrom.label)}-to-${encodeURIComponent(selectedOptionsTo.label)}`,
+      pathname: `/india/hyderabad/metro/hyderabad-city-trains-that-goes-from-${encodeURIComponent(selectedOptionsFrom.label)}-to-${encodeURIComponent(selectedOptionsTo.label)}`,
     });}
     catch (err){
       console.log(err)
@@ -181,12 +181,12 @@ const HomePage = () => {
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
-   <Link id = "home" href="/" className="commonclass">home</Link>
-  <Link id = "bustimings" className="commonclass" href="/bustimings" >Search Bus</Link>
-  <Link id = "allbuses" className="commonclass" href="/allbuses">All Buses</Link>
-  <Link id = "contact" className="commonclass" href="/contact">Contact</Link>
-  <Link id = "about" className="commonclass" href="/about">About</Link>
-  <Link id = "metrotimings" className="commonclass" href="/metrotimings">Metro Timings</Link>
+        <Link id = "home" href="/india/hyderabad/home" className="commonclass">home</Link>
+        <Link id = "bustimings" className="commonclass" href="/india/hyderabad/bustimings" >Search Bus</Link>
+        <Link id = "allbuses" className="commonclass" href="/india/hyderabad/allbuses">All Buses</Link>
+        <Link id = "contact" className="commonclass" href="/india/hyderabad/contact">Contact</Link>
+        <Link id = "about" className="commonclass" href="/india/hyderabad/about">About</Link>
+        <Link id = "metrotimings" className="commonclass" href="/india/hyderabad/metrotimings">Metro Timings</Link>
 
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
@@ -223,7 +223,7 @@ id="start"
 <button onClick={submitfn} type="submit">Get Route</button>
 
 </div>
-<div className="col-sm-6"><Image src={hydImg} className="responsive" alt={''} />
+<div className="col-sm-6">
   </div>
   </div>
   <h3 className="h3classHeadingOfEachSectiontext spacingClass">About hyderabad City Bus Service</h3>
@@ -247,16 +247,7 @@ id="start"
   </footer>
   </div>
   </main>
-  <style jsx>{`
-      /* Center the loader */
-      .loader {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /* Additional styling for the loader */
-      }
-    `}</style>
+
     </div>
   );
 };

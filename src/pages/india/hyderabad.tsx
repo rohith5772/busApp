@@ -1224,7 +1224,7 @@ const Hyderabad = () => {
   <li><Link href="/india/hyderabad/services">hyderabad</Link></li>
   <li><Link href="/india/Mumbai">Mumbai</Link></li>
   <li><Link href="/india/Chennai">Chennai</Link></li>
-  <li><Link href="/india/Bengaluru">Bengaluru</Link></li>
+  <li><Link href="/india/bengaluru/services">Bengaluru</Link></li>
   <li><Link href="/india/Pune">Pune</Link></li>
   <li><Link href="/india/Delhi">Delhi</Link></li>
   <li><Link href="/india/Mysore">Mysore</Link></li>

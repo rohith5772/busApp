@@ -37,10 +37,11 @@ export default function Table(props:any) {
           const country = currentUrl.split('/')[3];
           const filename = currentUrl.split('/')[6];
           const agency = currentUrl.split('/')[5];
+          busId = busId.replace('-','_'); 
           console.log(country,city);
 
           router.push({
-            pathname: `/`+country+`/`+city+`/detailbusjourney/hyderabad-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}-${filename}-${country}-${city}-${agency}`,
+            pathname: `/`+country+`/`+city+`/detailbusjourney/`+city+`-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}-${filename}-${country}-${city}-${agency}`,
           });
         } catch (error) {
           console.error(error);

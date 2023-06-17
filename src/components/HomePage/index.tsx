@@ -1220,8 +1220,8 @@ const HomePage = () => {
   <div className="row">
     
   <ul className = "no-bullets">
-    <li><Link href="/india">India</Link></li> 
-    <li><Link href="/#">Australia</Link></li>
+    <li><Link href="/India">India</Link></li> 
+    <li><Link href="#">Australia</Link></li>
     <li><Link href="#">United Kingdom</Link></li>
     <li><Link href="#">United States Of America</Link></li>
     <li><Link href="#">Colombia</Link></li>

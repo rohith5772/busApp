@@ -1221,7 +1221,7 @@ const India = () => {
   <div className="row">
   <ul className = "no-bullets">
 
-  <li><Link href="/india/hyderabad/services">hyderabad</Link></li>
+  <li><Link href="/india/hyderabad/services">Hyderabad</Link></li>
   <li><Link href="/india/Mumbai">Mumbai</Link></li>
   <li><Link href="/india/Chennai">Chennai</Link></li>
   <li><Link href="/india/bengaluru/services">Bengaluru</Link></li>

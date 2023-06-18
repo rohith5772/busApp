@@ -37,8 +37,8 @@ export default function Table(props:any) {
           const country = currentUrl.split('/')[3];
           const filename = currentUrl.split('/')[6];
           const agency = currentUrl.split('/')[5];
-          busId = busId.replace('-','_'); 
-          console.log(country,city);
+          busId = busId.replaceAll('-','_'); 
+          console.log(country,city,busId,"in table");
 
           router.push({
             pathname: `/`+country+`/`+city+`/detailbusjourney/`+city+`-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}-${filename}-${country}-${city}-${agency}`,

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Pagination from '../../../../pagination';
+import data from '../../../../json/hyderabad/hyderabad_local_bus.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Popup from 'reactjs-popup';
@@ -251,8 +252,7 @@ export async function getServerSideProps (context: any) {
   console.log("zs");
   console.log(context.query.slug);
   var busid = context.query.slug;
-  var busId = busid.split('-')[3];
-  busId = busId.replaceAll('_','-');
+  var busId = busid.split('-')[3].replaceAll("_","-");
   var val = context.query.slug;
   var fromVal = val.split('-')[7];
   var toVal = val.split('-')[9];

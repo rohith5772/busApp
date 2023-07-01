@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import Pagination from '../../pagination';
-import data from '../../json/hyderabad/hyderabad_local_bus.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Popup from 'reactjs-popup';

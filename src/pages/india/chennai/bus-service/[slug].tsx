@@ -30,7 +30,7 @@ export default function App(props: any) {
 }
 export async function getServerSideProps (context: any) {
   console.log(context.query.slug);
-    const filePath = path.join(process.cwd(), 'src/json/chennai/'+context.query.slug+'.json');
+    const filePath = path.join(process.cwd(), 'src/json/india/chennai/'+context.query.slug+'.json');
     const jsonData = await fsPromises.readFile(filePath, { encoding: 'utf-8' });
     const data = JSON.parse(jsonData);
     const filename = context.query.slug

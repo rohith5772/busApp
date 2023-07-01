@@ -2,23 +2,27 @@ import Pagination from '@/pagination';
 import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useState } from 'react'
 import Loader from '../loader';
+import Link from 'next/link';
 
 export default function Table(props:any) {
     let PageSize = 30;
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [city, setCity] = useState(String);
+    const [filenameorg, setFilename] = useState(String);
+
     const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return props.currentTableData.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
  
-    function submitfn(busId: string,From:string,To:string) {
+    function submitfn(busId: string,From:string,To:string,s_no: string) {
         console.log(busId,From,To);
-        fetchData(busId,From,To);
+        fetchData(busId,From,To,s_no);
       }
-      async function fetchData(busId: string, fromVal: string, toVal: string) {
+      async function fetchData(busId: string, fromVal: string, toVal: string,s_no: string) {
         try {
          /* const response = await fetch(
             `http://127.0.0.1:5000/busroutewithtimings?busId=${busId}&fromVal=${fromVal}&toVal=${toVal}`,
@@ -33,16 +37,14 @@ export default function Table(props:any) {
           });*/
           const currentUrl = window.location.href;
           console.log(currentUrl);
-          const city = currentUrl.split('/')[4];
-          const country = currentUrl.split('/')[3];
-          const filename = currentUrl.split('/')[6];
-          const agency = currentUrl.split('/')[5];
-          busId = busId.replaceAll('-','_'); 
-          console.log(country,city,busId,"in table");
+          const cityy = currentUrl.split('/')[3];
+          const filename = currentUrl.split('/')[4];
+          busId = busId.replaceAll('-','_').toLowerCase(); 
 
           router.push({
-            pathname: `/`+country+`/`+city+`/detailbusjourney/`+city+`-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}-${filename}-${country}-${city}-${agency}`,
-          });
+            pathname: `/`+cityy+`/route/${encodeURIComponent(busId)}-${filename}-${s_no}`,
+            //pathname: `/`+country+`/`+city+`/detailbusjourney/`+city+`-city-bus-${encodeURIComponent(busId)}-that-goes-from-${encodeURIComponent(fromVal)}-to-${encodeURIComponent(toVal)}-${filename}-${country}-${city}-${agency}`,
+          }); 
         } catch (error) {
           console.error(error);
         }
@@ -52,6 +54,13 @@ export default function Table(props:any) {
       }
       useEffect(() => {
         console.log(props.currentTableData);
+        const currentUrl = window.location.href;
+        console.log(currentUrl);
+        const cityval = currentUrl.split('/')[3];
+        const filenameval = currentUrl.split('/')[4];
+        console.log(filenameval,cityval);
+        setCity(cityval);
+        setFilename(filenameval);
         setLoading(true)
       }, [router])
       
@@ -76,7 +85,8 @@ export default function Table(props:any) {
             return (
               <tr key={item.bus_id}>
                 {/* <td className = "td-class">{item.id}</td> */}
-                <td className = "td-class" onClick={()=>submitfn(item.bus_id,item.From,item.To)}><h6 className="highlighttext">{item.bus_id}</h6></td>
+                <td className = "td-class" onClick={()=>submitfn(item.bus_id,item.From,item.To,item.S_No)}><h6 className="highlighttext">{item.bus_id}</h6></td>
+                {/* <td className="td-class"><Link href={`/${encodeURIComponent(city)}/detailbusjourney/${encodeURIComponent(item.bus_id).replaceAll("-","_").toLowerCase()}-${encodeURIComponent(item.From)}-${encodeURIComponent(item.To)}-${filenameorg}/`}><h6 className="highlighttext">{item.bus_id}</h6></Link></td>                 */}
                 <td className = "td-class">{item.From}</td>
                 <td className = "td-class">{item.To}</td>
               </tr>

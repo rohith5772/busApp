@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Pagination from '../../../pagination';
-import data from '../../../json/hyderabad/hyderabad_local_bus.json';
+import data from '../../../json/india/hyderabad/test.json';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import Link from 'next/link';
@@ -8,33 +8,22 @@ import Loader from '../../../components/loader';
 import Table from '@/components/Table/Table';
 import Header from '@/components/Header/header';
 import Footer from '@/components/Footer/footer';
+import fsPromises from 'fs/promises';
 
 //let PageSize = 10;
 
-export default function App() {
-  //const [currentPage, setCurrentPage] = useState(1);
+
+export default function App(props: any) {
+  const [currentTableData, setCurrentTableData] = useState([]);
   //const router = useRouter();
   //const [loading, setLoading] = useState(false);
 
-  const currentTableData = data;
-  // useEffect(() => {
-      
-  //   const currentUrl = window.location.href;
-  //   console.log(currentUrl);
-  //   const hasWord = currentUrl.includes('allbuses');
+  useEffect(() => {
+    setCurrentTableData(props.data);
+console.log(props.data);
+   
 
-  //   console.log(hasWord+"hasWord");
-  //   document.getElementsByClassName('commonclass');
-  //    for (let i = 0; i < document.getElementsByClassName('commonclass').length; i++) {
-  //     console.log(document.getElementsByClassName('commonclass')[i].className = "commonclass");
-  //   }
-
-  //   if(currentUrl.includes('allbuses') == true){
-  //     var val = (document.getElementById("allbuses") as HTMLInputElement);
-  //     val.className+=" active";
-  //   }
-
-  // }, []);
+  }, []);
   /*function myFunction() {
     var x = (document.getElementById("myTopnav") as HTMLInputElement);
    
@@ -74,63 +63,43 @@ export default function App() {
 
     <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
     <Header/>
-    {/* <div className="topnav" id="myTopnav">
-    <Link id = "home" href="/india/hyderabad/home" className="commonclass">home</Link>
-        <Link id = "bustimings" className="commonclass" href="/india/hyderabad/bustimings" >Search Bus</Link>
-        <Link id = "allbuses" className="commonclass" href="/india/hyderabad/allbuses">All Buses</Link>
-        <Link id = "contact" className="commonclass" href="/india/hyderabad/contact">Contact</Link>
-        <Link id = "about" className="commonclass" href="/india/hyderabad/about">About</Link>
-        <Link id = "metrotimings" className="commonclass" href="/india/hyderabad/metrotimings">Metro Timings</Link>
-
-  <a href="javascript:void(0);" className="icon" onClick={myFunction}>
-    <i className="fa fa-bars"></i>
-  </a>
-</div> */}
-    <Table currentTableData = {currentTableData}/>
-
-{/*<main>
-  <div className="flex-wrapper">
-  <div className="container">
-  <div className="row">
-      <table className="center">
-        <thead>
-          <tr>
-            <th className="th-class">S No</th>
-            <th className="th-class">Bus Id</th>
-            <th className="th-class">From</th>
-            <th className="th-class">To</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentTableData.map(item => {
+    {currentTableData.map((item:any )=> {
             return (
-              <tr key={item.id}>
-                <td className = "td-class">{item.id}</td>
-                <td className = "td-class" onClick={()=>submitfn(item.bus_id,item.From,item.To)}><h6 className="highlighttext">{item.bus_id}</h6></td>
+              <tr key={item.bus_id}>
+                {/* <td className = "td-class">{item.id}</td> */}
+                <td className = "td-class">{item.bus_id}</td>
                 <td className = "td-class">{item.From}</td>
                 <td className = "td-class">{item.To}</td>
+                <td className = "td-class">{item.stop_id[1]}</td>
+
               </tr>
             );
           })}
-        </tbody>
-      </table>
-      <Pagination
-        className="pagination-bar"
-        currentPage={currentPage}
-        totalCount={data.length}
-        pageSize={PageSize}
-        onPageChange={(page: React.SetStateAction<number>) => setCurrentPage(page)}
-      />
-      </div>
-        </div>
-   <footer>
-    <p>&copy; 2023 Cityroutemapper</p>
-  </footer> 
-</div>
-</main>*/}
-
-  <Footer/>
+     <Footer/>
 
     </div>
   );
+}
+export async function getServerSideProps (context: any) {
+  
+  const filePath =  'src/json/india/hyderabad/test.json';
+  const jsonData = await fsPromises.readFile(filePath, { encoding: 'utf-8' });
+  const data = JSON.parse(jsonData);
+  //console.log(data);
+
+  for(var i =0;i<data.length;i++)
+  {
+    //console.log(data[i]);
+    if(data[i].bus_id == 'V-201' && data[i].From == 'CityBusStandPlatform23' && data[i].To == 'ChamundiHill')
+    {
+      console.log("hip");
+
+      console.log(data[i]);
+
+    }
+  }
+
+return {
+    props: {data},
+  }
 }

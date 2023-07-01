@@ -6,40 +6,27 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
+import fsPromises from 'fs/promises';
 
 let PageSize = 10;
-interface BusData {
 
-buses_list: {
-  Stop_Timings: any;
-  Arr_Time: string;
-  Dep_Time: string;
-  Freq: string;
-  From: string;
-  Station_Order: number;
-  To: string;
-  bus_id: string;
-  stop_id: string;
-}[];
-}
 export default function App(props: any) {
   
   const router = useRouter();
   const busId= router.query.busId;
   const fromVal = router.query.From;
   const toVal = router.query.To;
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(props.data);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [inputValue, setInputValue] = useState(Number);
   const [busData, setBusData] = useState(null);
   const [stopTimings, setStopTimings] = useState<Array<string>>([]); // specify the type of the state variable as an array of strings
-  const [stateVal, setStateVal] = useState<BusData>(props.busesList);//if you want to do server side rendering just uncooment this line and comment below line and comment useeffect method and uncomment getserversideprops..thats it
   //const [stateVal, setStateVal] = useState<BusData>({ buses_list: [] });
   const [timeLength,setTotalTimingsLength] = useState(Number);
   //const arrParticularStopTiming: Array<string> = [];
   const [arrParticularStopTiming, setArrParticularStopTiming] = useState<string[]>([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [bus_Id, setBus_id] = useState(props.bus_Id);
+  const [bus_Id, setBus_id] = useState(props.i);
   const [from, setFrom] = useState(props.from);
   const [to, setTo] = useState(props.to);
   const metaDescription = "hyderabad City Bus Routes TimeTable from"+props.from+"to"+ props.to;
@@ -69,35 +56,11 @@ export default function App(props: any) {
     }
     fetchResult();*/ 
     ReactGA.pageview(window.location.href);
-
+setData(props.data);
+setBus_id(props.i);
        }, []);
        
   const arr: any[] = [];    
-  function openPopup(event:any) {
-    setIsPopupOpen(true);
-    setInputValue(event.currentTarget.value);
-    console.log(event.currentTarget.value);
-    console.log(stateVal);
-    const stopTimingsArray = stateVal.buses_list.map((bus) => bus.Stop_Timings);
-    setStopTimings(stopTimingsArray);
-    setTotalTimingsLength(stopTimingsArray[event.currentTarget.value].length);
-    console.log(stopTimingsArray[event.currentTarget.value]);
-    console.log(timeLength);
-    setMyArray([]);
-
-    for(let i = 0;i<stopTimingsArray[event.currentTarget.value].length;i++)
-    {
-        console.log(stopTimingsArray[event.currentTarget.value][i]);
-        arr.push(stopTimingsArray[event.currentTarget.value][i]);
-        arrParticularStopTiming.push(stopTimingsArray[event.currentTarget.value][i]);
-        setArrParticularStopTiming([...arrParticularStopTiming, arr[i]])
-        console.log(arr[i]+"arrr");
-        setMyArray(prevArray => [...prevArray, arr[i]]);
-
-    }
-    console.log(arr[0],arrParticularStopTiming[0]+"app");
-   
-  }
   
   /*if (stateVal.buses_list) {
     setBusData(stateVal.buses_list[0].Stop_Timings);
@@ -155,7 +118,6 @@ export default function App(props: any) {
     return (
       <div>
       
-      <p>{stateVal.buses_list[inputValue].bus_id} stops at {stateVal.buses_list[inputValue].stop_id} at </p>
 
 <td className = "td-class">{myArray.map((timings : any , i : number)=>{
           if(myArray.length - 1 === i)
@@ -193,28 +155,20 @@ export default function App(props: any) {
   <div className="container">
   <div className="row">
   <div className="col-sm-6">
+  <h4><b>{data.bus_id}</b> City Bus Route &amp; Timings</h4>
+  <p>hyderabad city bus no <strong>{data.bus_id}</strong> managed by <a href="http://www.tsrtc.telangana.gov.in/" target="_blank" rel="noopener noreferrer">TSRTC</a>, starts from <strong>{data.From}</strong> and ends at <strong>{data.To}</strong>. The city bus covers a total of <strong>{data.stop_id.length} bus stops</strong> during its trip.</p>
 
-  <h4><b>{stateVal.buses_list[0]?.bus_id}</b> City Bus Route &amp; Timings</h4>
-  <p>hyderabad city bus no <strong>{stateVal.buses_list[0]?.bus_id}</strong> managed by <a href="http://www.tsrtc.telangana.gov.in/" target="_blank" rel="noopener noreferrer">TSRTC</a>, starts from <strong>{stateVal.buses_list[0]?.From}</strong> and ends at <strong>{stateVal.buses_list[0]?.To}</strong>. The city bus covers a total of <strong>{stateVal.buses_list.length} bus stops</strong> during its trip.</p>
   <ul className="stops-list bordered experiences">
-
-  {stateVal.buses_list.map((bus: { bus_id: React.Key | null | undefined; 
-      stop_id: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; 
-      Freq: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
-      Arr_Time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
-
-    },index: any) => (
-        <li key={bus.bus_id}>
-  <div className="stop-wrapper" >{bus.stop_id}</div>
+  {/* 
+        {data.stop_id.map((stop:any, index:any) => (
+          <li key={index}>{stop}</li>
+        ))}
+       */}
+  {data.stop_id.map((stop:any,index: any) => (
+        <li key={index}>
+  <div className="stop-wrapper" >{stop}</div>
   {/*<button className="schedule-link upcoming-arrivals-link" onClick={openPopup} value={index}>Upcoming Arrivals</button>*/}
       
-      <Popup
-        open={isPopupOpen}
-        closeOnDocumentClick={false}
-        onClose={closePopup}
-      >
-        <PopupContent />
-      </Popup>
       
         </li>
       ))}</ul>
@@ -264,11 +218,31 @@ export async function getServerSideProps (context: any) {
 
   //const response = await fetch("https://rohith5772.pythonanywhere.com/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
   //const response =  await fetch("http://127.0.0.1:5000/busroutewithtimings"+"?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal);
-  const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal+"&filename="+filename+"&country="+country+"&city="+city+"&service="+service);
+ /* const response = await fetch("https://buwudfhowtxh2cgkwtrqucdnqy0ibsmy.lambda-url.ap-south-1.on.aws/?busId="+busId+"&fromVal="+fromVal+"&toVal="+toVal+"&filename="+filename+"&country="+country+"&city="+city+"&service="+service);
 
   const busesList: BusData = await response.json();
   
 return {
 props: {busesList,busId,fromVal,toVal}, // will be passed to the page component as props
-}
+}*/
+const filePath =  'src/json/india/hyderabad/test.json';
+  const jsonData = await fsPromises.readFile(filePath, { encoding: 'utf-8' });
+  let data = JSON.parse(jsonData);
+  //console.log(data);
+var i;
+  for(i =0;i<data.length;i++)
+  {
+    //console.log(data[i]);
+    if(data[i].bus_id == busId && data[i].From == fromVal && data[i].To == toVal)
+    {
+      console.log("hip");
+
+      console.log(data[i].stop_id);
+      break;
+    }
+  }
+data = data[i]; 
+return {
+    props: {data,i},
+  }
 }

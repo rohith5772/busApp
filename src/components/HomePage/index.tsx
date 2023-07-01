@@ -1194,10 +1194,10 @@ const HomePage = () => {
       {
         !loading ? <Loader/> : <></>  
       }
-      <title>All Schedule Timing TimeTable of hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+      <title>All Schedule Timing</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
       <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,hyderabad City Bus"/>
           <meta name="description" content="Find hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
-              <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
+              <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">Global City Routes</a></h1>
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
@@ -1220,10 +1220,10 @@ const HomePage = () => {
   <div className="row">
     
   <ul className = "no-bullets">
-    <li><Link href="/India">India</Link></li>
+    <li><Link href="/india">india</Link></li>
     <li><Link href="#">Australia</Link></li>
     <li><Link href="#">United Kingdom</Link></li>
-    <li><Link href="#">United States</Link></li>
+    <li><Link href="/usa">United States</Link></li>
     <li><Link href="#">Colombia</Link></li>
     <li><Link href="#">Indonesia</Link></li>
     <li><Link href="#">Spain</Link></li>

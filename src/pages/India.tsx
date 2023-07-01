@@ -1195,10 +1195,10 @@ const India = () => {
       {
         !loading ? <Loader/> : <></>  
       }
-      <title>All Schedule Timing TimeTable of hyderabad City Bus</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
+      <title>All Schedule Timing TimeTable</title><meta name = "keyword" content="find bus schedule,City bus timetable, hyderabad City Bus,,bus schedule,"/>
       <meta name = "keyword" content="bus timings hyderabad city,hyderabad bus route,find bus schedule,hyderabad City route map, bus timetable pdf,city bus routes,bus routes list hyderabad,hyderabad City Bus"/>
           <meta name="description" content="Find hyderabad City Bus Routes Schedule Timings TimeTable and info.Get bus Route pdf"/>
-              <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">hyderabad City Bus Routes</a></h1>
+              <h1 className="h1class"><a href="" title="hyderabad Bus Routes " target="_self">India City Routes</a></h1>
 
         <div id="map"></div>
         <div className="topnav" id="myTopnav">
@@ -1221,14 +1221,15 @@ const India = () => {
   <div className="row">
   <ul className = "no-bullets">
 
-  <li><Link href="/india/hyderabad/services">Hyderabad</Link></li>
-  <li><Link href="/india/mumbai/services">Mumbai</Link></li>
-  <li><Link href="/india/chennai/services">Chennai</Link></li>
-  <li><Link href="/india/bengaluru/services">Bengaluru</Link></li>
-  <li><Link href="/india/pune/services">Pune</Link></li>
-  <li><Link href="/india/delhi/services">Delhi</Link></li>
-  <li><Link href="/india/mysore/services">Mysore</Link></li>
-  <li><Link href="/india/ahmedabad/services">Ahmedabad</Link></li>
+  <li><Link href="/india-hyderabad/services">Hyderabad</Link></li>
+  <li><Link href="/india-mumbai/services">Mumbai</Link></li>
+  <li><Link href="/india-chennai/services">Chennai</Link></li>
+  <li><Link href="/india-bengaluru/services">Bengaluru</Link></li>
+  <li><Link href="/india-pune/services">Pune</Link></li>
+  <li><Link href="/india-delhi/services">Delhi</Link></li>
+  <li><Link href="/india-mysore/services">Mysore</Link></li>
+  <li><Link href="/india-ahmedabad/services">Ahmedabad</Link></li>
+  <li><Link href="/india-nagpur/services">Nagpur</Link></li>
 
 
 

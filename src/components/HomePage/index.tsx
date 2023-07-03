@@ -1219,8 +1219,8 @@ const HomePage = () => {
   
   <div className="row">
     
-  <ul className = "no-bullets">
-    <li><Link href="/India">india</Link></li>
+  {/* <ul className = "no-bullets">
+    <li><Link href="/india">india</Link></li>
     <li><Link href="#">Australia</Link></li>
     <li><Link href="#">United Kingdom</Link></li>
     <li><Link href="/usa">United States</Link></li>
@@ -1231,8 +1231,97 @@ const HomePage = () => {
     <li><Link href="#">Mexico</Link></li>
     <li><Link href="#">Turkey</Link></li>
     <li><Link href="#">Italy</Link></li>
-  </ul>  
+  </ul>   */}
 
+  <div className="block regions">
+        <h2>Our coverage</h2>
+        <div className="region">
+          <div className="region-header">
+            <h3 className="region-title" id="europe">All of World</h3>
+          </div>
+          <div className="cities">
+            <article className="city" data-region-id="uk-london" data-region-live="true">
+              <Link href="/India"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">India</h1>
+                  <p className="city-flag">in</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-newcastle" data-region-live="true">
+              <Link href="/usa"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-mexico-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">United States</h1>
+                  <p className="city-flag">usa</p>
+                </div></Link>
+            </article>
+
+            <article className="city" data-region-id="uk-manchester" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-manchester-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Australia</h1>
+                  <p className="city-flag">aus</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-manchester" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-liverpool-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">United Kingdom</h1>
+                  <p className="city-flag">uk</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-birmingham" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-birmingham-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Colombia</h1>
+                  <p className="city-flag">co</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-edinburgh-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Indonesia</h1>
+                  <p className="city-flag">indo</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-glasgow-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Spain</h1>
+                  <p className="city-flag">sp</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-birmingham" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-nottingham-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Brazil</h1>
+                  <p className="city-flag">brz</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-bristol" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-cardiff-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Mexico</h1>
+                  <p className="city-flag">mex</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-bristol" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-bristol-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Turkey</h1>
+                  <p className="city-flag">trk</p>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-newcastle" data-region-live="true">
+              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-newcastle-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Italy</h1>
+                  <p className="city-flag">ity</p>
+                </div></Link>
+            </article>
+
+          </div>
+        </div>
+      </div>
 
 
   </div>

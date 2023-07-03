@@ -228,7 +228,7 @@ var i;
   for(i =0;i<data.length;i++)
   {
     //console.log(data[i]);
-    if(data[i].bus_id.toLowerCase() == busId && data[i].S_No == s_no)
+    if(data[i].bus_id.toLowerCase() == busId && (parseInt(data[i].S_No)%2).toString() == s_no)
     { 
       console.log("hip");
 

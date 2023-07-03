@@ -1219,7 +1219,7 @@ const India = () => {
 <div className="container">
   
   <div className="row">
-  <ul className = "no-bullets">
+  {/* <ul className = "no-bullets">
 
   <li><Link href="/india-hyderabad/services">Hyderabad</Link></li>
   <li><Link href="/india-mumbai/services">Mumbai</Link></li>
@@ -1230,10 +1230,76 @@ const India = () => {
   <li><Link href="/india-mysore/services">Mysore</Link></li>
   <li><Link href="/india-ahmedabad/services">Ahmedabad</Link></li>
   <li><Link href="/india-nagpur/services">Nagpur</Link></li>
+</ul> */}
+
+<div className="block regions">
+        <h2>Our coverage</h2>
+        <div className="region">
+          <div className="region-header">
+            {/* <h3 className="region-title" id="europe">All of World</h3> */}
+          </div>
+          <div className="cities">
+            <article className="city" data-region-id="uk-london" data-region-live="true">
+              <Link href="/india-hyderabad/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Hyderabad</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-newcastle" data-region-live="true">
+              <Link href="/india-mumbai/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-mexico-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Mumbai</h1>
+                </div></Link>
+            </article>
+
+            <article className="city" data-region-id="uk-manchester" data-region-live="true">
+              <Link href="/india-chennai/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-manchester-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Chennai</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-manchester" data-region-live="true">
+              <Link href="/india-bengaluru/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-liverpool-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Bengaluru</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-birmingham" data-region-live="true">
+              <Link href="/india-pune/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-birmingham-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Pune</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
+              <Link href="/india-delhi/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-edinburgh-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Delhi</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
+              <Link href="/india-mysore/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-glasgow-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Mysore</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-birmingham" data-region-live="true">
+              <Link href="/india-ahmedabad/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-nottingham-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Ahmedabad</h1>
+                </div></Link>
+            </article>
+            <article className="city" data-region-id="uk-bristol" data-region-live="true">
+              <Link href="/india-nagpur/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-cardiff-web.png" width="141" height="141" alt=" "/>
+                <div className="city-copy">
+                  <h1 className="city-name">Nagpur</h1>
+                </div></Link>
+            </article>
+
+          </div>
+        </div>
+      </div>
 
 
-
-</ul>
   </div>
   
 </div >

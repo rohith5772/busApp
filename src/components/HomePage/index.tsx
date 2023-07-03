@@ -1237,7 +1237,7 @@ const HomePage = () => {
         <h2>Our coverage</h2>
         <div className="region">
           <div className="region-header">
-            <h3 className="region-title" id="europe">All of World</h3>
+            {/* <h3 className="region-title" id="europe">All of World</h3> */}
           </div>
           <div className="cities">
             <article className="city" data-region-id="uk-london" data-region-live="true">

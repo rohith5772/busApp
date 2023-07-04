@@ -1130,26 +1130,8 @@ const HomePage = () => {
     const currentUrl = window.location.href;
     console.log(currentUrl);
     const hasWord = currentUrl.includes('BusTimings');
-    const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9WKDGYYKZB';
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Declare dataLayer as a global variable using type assertion
-    (window as any).dataLayer = (window as any).dataLayer || [];
-
     
 
-    function gtag(...args: any[]) {
-      (window as any).dataLayer.push(...args);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'G-9WKDGYYKZB');
-
-    return () => {
-      document.body.removeChild(script);
-    };
     console.log(hasWord+"hasWord");
     document.getElementsByClassName('commonclass');
      for (let i = 0; i < document.getElementsByClassName('commonclass').length; i++) {
@@ -1251,7 +1233,7 @@ const HomePage = () => {
     <li><Link href="#">Turkey</Link></li>
     <li><Link href="#">Italy</Link></li>
   </ul>   */}
-
+<button onClick={()=>{(window as any).dataLayer.push({'event':'test'})}}>test</button>
   <div className="block regions">
         <h2><b>Our coverage</b></h2>
         <div className="region">
@@ -1260,7 +1242,7 @@ const HomePage = () => {
           </div>
           <div className="cities">
             <article className="city" data-region-id="uk-london" data-region-live="true">
-              <Link href="/India"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
+              <Link href="/india"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
                   <h1 className="city-name"><b>India</b></h1>
                 </div></Link>

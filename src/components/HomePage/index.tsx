@@ -1233,7 +1233,7 @@ const HomePage = () => {
     <li><Link href="#">Turkey</Link></li>
     <li><Link href="#">Italy</Link></li>
   </ul>   */}
-<button onClick={()=>{(window as any).dataLayer.push({'event':'test'})}}>test</button>
+{/* <button onClick={()=>{(window as any).dataLayer.push({'event':'test'})}}>test</button> */}
   <div className="block regions">
         <h2><b>Our coverage</b></h2>
         <div className="region">

@@ -1242,7 +1242,7 @@ const HomePage = () => {
           </div>
           <div className="cities">
             <article className="city" data-region-id="uk-london" data-region-live="true">
-              <Link href="/India"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
+              <Link href="/india"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
                   <h1 className="city-name"><b>India</b></h1>
                 </div></Link>
@@ -1255,15 +1255,15 @@ const HomePage = () => {
             </article>
 
             <article className="city" data-region-id="uk-manchester" data-region-live="true">
-              <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-manchester-web.png" width="141" height="141" alt=" "/>
+              <Link href="/uk"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-manchester-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name"><b>Australia</b></h1>
+                  <h1 className="city-name"><b>United Kingdom</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-manchester" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-liverpool-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name"><b>United Kingdom</b></h1>
+                  <h1 className="city-name"><b>Australia</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-birmingham" data-region-live="true">

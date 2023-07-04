@@ -1130,7 +1130,26 @@ const HomePage = () => {
     const currentUrl = window.location.href;
     console.log(currentUrl);
     const hasWord = currentUrl.includes('BusTimings');
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9WKDGYYKZB';
+    script.async = true;
+    document.body.appendChild(script);
 
+    // Declare dataLayer as a global variable using type assertion
+    (window as any).dataLayer = (window as any).dataLayer || [];
+
+    
+
+    function gtag(...args: any[]) {
+      (window as any).dataLayer.push(...args);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-9WKDGYYKZB');
+
+    return () => {
+      document.body.removeChild(script);
+    };
     console.log(hasWord+"hasWord");
     document.getElementsByClassName('commonclass');
      for (let i = 0; i < document.getElementsByClassName('commonclass').length; i++) {
@@ -1234,7 +1253,7 @@ const HomePage = () => {
   </ul>   */}
 
   <div className="block regions">
-        <h2>Our coverage</h2>
+        <h2><b>Our coverage</b></h2>
         <div className="region">
           <div className="region-header">
             {/* <h3 className="region-title" id="europe">All of World</h3> */}
@@ -1243,79 +1262,68 @@ const HomePage = () => {
             <article className="city" data-region-id="uk-london" data-region-live="true">
               <Link href="/India"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">India</h1>
-                  <p className="city-flag">in</p>
+                  <h1 className="city-name"><b>India</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-newcastle" data-region-live="true">
               <Link href="/usa"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-mexico-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">United States</h1>
-                  <p className="city-flag">usa</p>
+                  <h1 className="city-name"><b>United States</b></h1>
                 </div></Link>
             </article>
 
             <article className="city" data-region-id="uk-manchester" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-manchester-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Australia</h1>
-                  <p className="city-flag">aus</p>
+                  <h1 className="city-name"><b>Australia</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-manchester" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-liverpool-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">United Kingdom</h1>
-                  <p className="city-flag">uk</p>
+                  <h1 className="city-name"><b>United Kingdom</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-birmingham" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-birmingham-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Colombia</h1>
-                  <p className="city-flag">co</p>
+                  <h1 className="city-name"><b>Colombia</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-edinburgh-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Indonesia</h1>
-                  <p className="city-flag">indo</p>
+                  <h1 className="city-name"><b>Indonesia</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-glasgow-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Spain</h1>
-                  <p className="city-flag">sp</p>
+                  <h1 className="city-name"><b>Spain</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-birmingham" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-nottingham-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Brazil</h1>
-                  <p className="city-flag">brz</p>
+                  <h1 className="city-name"><b>Brazil</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-bristol" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-cardiff-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Mexico</h1>
-                  <p className="city-flag">mex</p>
+                  <h1 className="city-name"><b>Mexico</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-bristol" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-bristol-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Turkey</h1>
-                  <p className="city-flag">trk</p>
+                  <h1 className="city-name"><b>Turkey</b></h1>
                 </div></Link>
             </article>
             <article className="city" data-region-id="uk-newcastle" data-region-live="true">
               <Link href="#"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-newcastle-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
-                  <h1 className="city-name">Italy</h1>
-                  <p className="city-flag">ity</p>
+                  <h1 className="city-name"><b>Italy</b></h1>
                 </div></Link>
             </article>
 

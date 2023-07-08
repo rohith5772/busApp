@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 
 import { useEffect,useState } from 'react'
 //import './homePage.css';
-import axios from "axios";
+
 import hydImg from './hyd-map.png';
 import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -1242,7 +1242,7 @@ const HomePage = () => {
           </div>
           <div className="cities">
             <article className="city" data-region-id="uk-london" data-region-live="true">
-              <Link href="/India"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
+              <Link href="/india"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
                 <div className="city-copy">
                   <h1 className="city-name"><b>India</b></h1>
                 </div></Link>

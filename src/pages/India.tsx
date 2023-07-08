@@ -1232,72 +1232,7 @@ const India = () => {
   <li><Link href="/india-nagpur/services">Nagpur</Link></li>
 </ul> */}
 
-<div className="block regions">
-        <h2><b>Our coverage</b></h2>
-        <div className="region">
-          <div className="region-header">
-            {/* <h3 className="region-title" id="europe">All of World</h3> */}
-          </div>
-          <div className="cities">
-            <article className="city" data-region-id="uk-london" data-region-live="true">
-              <Link href="/india-hyderabad/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-london-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Hyderabad</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-newcastle" data-region-live="true">
-              <Link href="/india-mumbai/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-mexico-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Mumbai</b></h1>
-                </div></Link>
-            </article>
 
-            <article className="city" data-region-id="uk-manchester" data-region-live="true">
-              <Link href="/india-chennai/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-manchester-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Chennai</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-manchester" data-region-live="true">
-              <Link href="/india-bengaluru/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-liverpool-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Bengaluru</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-birmingham" data-region-live="true">
-              <Link href="/india-pune/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-birmingham-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Pune</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
-              <Link href="/india-delhi/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-edinburgh-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Delhi</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-edinburgh" data-region-live="true">
-              <Link href="/india-mysore/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-glasgow-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Mysore</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-birmingham" data-region-live="true">
-              <Link href="/india-ahmedabad/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-nottingham-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Ahmedabad</b></h1>
-                </div></Link>
-            </article>
-            <article className="city" data-region-id="uk-bristol" data-region-live="true">
-              <Link href="/india-nagpur/services"><Image className="city-image" src="https://global-api.citymapper.com/resourceproxy/greenie-cardiff-web.png" width="141" height="141" alt=" "/>
-                <div className="city-copy">
-                  <h1 className="city-name"><b>Nagpur</b></h1>
-                </div></Link>
-            </article>
-
-          </div>
-        </div>
-      </div>
 
 
   </div>

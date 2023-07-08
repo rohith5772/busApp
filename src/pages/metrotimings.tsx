@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 
 import { useEffect,useState } from 'react'
 //import './homePage.css';
-
+import axios from "axios";
 import Select from "react-select";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';

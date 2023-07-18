@@ -61,7 +61,7 @@ const Ahmedabad = () => {
 
 </ul>
 
-<
+
 </div>
 </div >
   <footer>

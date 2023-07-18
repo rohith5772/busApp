@@ -56,6 +56,8 @@ const Ahmedabad = () => {
 <div className="container">
 <div className="row">
 <h1>Bus Services</h1>
+<ul className = "no-bullets">
+
 <li><Link href="/usa-grandrapids/indian_trails">Indian Trails</Link></li>
 <li><Link href="/usa-grandrapids/the_rapid">The Rapid</Link></li>
 

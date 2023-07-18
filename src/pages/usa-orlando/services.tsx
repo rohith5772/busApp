@@ -57,14 +57,14 @@ const Ahmedabad = () => {
 <div className="row">
 <h1>Bus Services</h1>
 <ul className = "no-bullets">
-  <<li><Link href="/usa-orlando/amtrak_chartered">Amtrak Charted Vehicle</Link></li>
+  <li><Link href="/usa-orlando/amtrak_chartered">Amtrak Charted Vehicle</Link></li>
 <li><Link href="/usa-orlando/citrus_connection">Citrus Connection</Link></li>
 <li><Link href="/usa-orlando/cra">CRA</Link></li>
 <li><Link href="/usa-orlando/i_ride">I-RIDE</Link></li>
 <li><Link href="/usa-orlando/lake_express">Lake Express</Link></li>
 <li><Link href="/usa-orlando/lynx">Lynx</Link></li>
 
-
+</ul>
 <h1>Train Services</h1>
 <ul className = "no-bullets">
 <li><Link href="/usa-orlando/amtrak">Amtrak</Link></li>

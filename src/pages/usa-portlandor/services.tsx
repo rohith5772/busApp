@@ -103,7 +103,7 @@ const Ahmedabad = () => {
 <h1>Ferry Agencies</h1>
 <ul className = "no-bullets">
 <li><Link href="/usa-portlandor/canby_ferry">Canby Ferry</Link></li>
-li><Link href="/usa-portlandor/wheatland_ferry">Wheatland Ferry</Link></li>
+<li><Link href="/usa-portlandor/wheatland_ferry">Wheatland Ferry</Link></li>
 <li><Link href="/usa-portlandor/wahkiakum_ferry">Wahkiakum Ferry</Link></li>
 
  

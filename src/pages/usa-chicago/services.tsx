@@ -72,7 +72,7 @@ const Ahmedabad = () => {
 <li><Link href="/usa-chicago/amtrak">AMTRAK</Link></li>
 <li><Link href="/usa-chicago/metra">METRA</Link></li>
 </ul>
-<h1>Chicago 'L' Agencies</h1>
+<h1>Chicago L Agencies</h1>
 <ul className = "no-bullets">
 
 <li><Link href="/usa-chicago/chicago_l">CHICAGO_L</Link></li>

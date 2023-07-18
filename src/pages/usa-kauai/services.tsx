@@ -67,6 +67,7 @@ const Ahmedabad = () => {
     <p>&copy; 2023 Cityroutemapper</p>
   </footer>
   </div>
+  </div>
   </main>
 
     </div>

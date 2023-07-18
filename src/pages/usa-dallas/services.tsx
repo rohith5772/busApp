@@ -56,6 +56,8 @@ const Ahmedabad = () => {
 <div className="container">
 <div className="row">
 <h1>Bus Services</h1>
+<ul className = "no-bullets">
+
 <li><Link href="/usa-dallas/dart_bus">DART_BUS</Link></li>
 <li><Link href="/usa-dallas/dcta">DCTA</Link></li>
 <li><Link href="/usa-dallas/dfw_terminal_link">DFW_TERMINAL_LINK</Link></li>

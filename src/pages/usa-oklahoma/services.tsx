@@ -67,6 +67,7 @@ const Ahmedabad = () => {
 <h1>Train Services</h1>
 <ul className = "no-bullets">
 <li><Link href="/usa-oklahoma/amtrak">Amtrak</Link></li>
+</ul>
 <h1>Light Rail Services</h1>
 <ul className = "no-bullets">
 <li><Link href="/usa-oklahoma/embark_rail">EMBARK_RAIL</Link></li>
